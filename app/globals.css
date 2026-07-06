@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-surface text-ink font-sans;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+}
+
+@layer utilities {
+  .container-layout {
+    @apply mx-auto w-full max-w-layout px-6 md:px-12 lg:px-16;
+  }
+
+  .bg-blueprint {
+    background-image:
+      linear-gradient(rgba(14, 13, 11, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(14, 13, 11, 0.035) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  .section-pad {
+    @apply py-24 md:py-32;
+  }
+
+  .section-pad-sm {
+    @apply py-16 md:py-24;
+  }
+}
