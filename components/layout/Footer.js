@@ -1,19 +1,60 @@
-const year = new Date().getFullYear()
-
+import Link from "next/link";
+import Image from "next/image";
+import { ContactButton } from "@/components/ui/ContactButton";
 export function Footer() {
   return (
-    <footer className="bg-ink">
-      <div className="container-layout">
-        <div className="flex flex-col gap-6 py-12 md:flex-row md:items-center md:justify-between">
-          <span className="font-serif text-lg text-surface">LE FOND</span>
-          <p className="font-mono text-[11px] tracking-[0.18em] uppercase text-surface/30">
-            Systems that build businesses.
-          </p>
-          <p className="font-sans text-xs text-surface/30">
-            © {year} Le Fond. South Africa.
-          </p>
+    <footer className="footer">
+      <div className="wrap">
+        <div className="footer-grid">
+          <div>
+            <Link href="/" aria-label="Le Fond home">
+              <Image
+                src="/images/logo.png"
+                className="brand-logo"
+                width={190}
+                height={190}
+                alt="Le Fond"
+              />
+            </Link>
+            <p>
+              Lead generation systems for businesses that can’t afford to lose
+              the next enquiry.
+            </p>
+            <p>South Africa</p>
+          </div>
+          <nav aria-label="Solutions footer">
+            <h3>What we build</h3>
+            <Link href="/#services">Lead Generation</Link>
+            <Link href="/#system">Funnels</Link>
+            <Link href="/#ai">Automation</Link>
+            <Link href="/commerce">Commerce</Link>
+          </nav>
+          <nav aria-label="Company footer">
+            <h3>Le Fond</h3>
+            <Link href="/#industries">Industries</Link>
+            <Link href="/about">About</Link>
+            <Link href="/contact">Contact</Link>
+            <Link href="/#investment">Investment</Link>
+          </nav>
+          <nav aria-label="Contact footer">
+            <h3>Start a conversation</h3>
+            <ContactButton plain label="Book a Discovery Call" />
+            <ContactButton plain channel="audit" />
+            <ContactButton plain channel="whatsapp" />
+            <ContactButton plain channel="email" />
+          </nav>
+        </div>
+        <div className="footer-bottom">
+          <span>
+            © {new Date().getFullYear()} Le Fond. Capture. Qualify. Book.
+            Follow up.
+          </span>
+          <div className="flex gap-5">
+            <Link href="/privacy">Privacy Policy</Link>
+            <Link href="/terms">Terms</Link>
+          </div>
         </div>
       </div>
     </footer>
-  )
+  );
 }

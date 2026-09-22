@@ -1,47 +1,73 @@
-import { DM_Serif_Display, Outfit, DM_Mono } from 'next/font/google'
-import './globals.css'
-import { Navbar } from '@/components/layout/Navbar'
-import { Footer } from '@/components/layout/Footer'
-
-const dmSerif = DM_Serif_Display({
-  subsets: ['latin'],
-  weight: ['400'],
-  style: ['normal', 'italic'],
-  variable: '--font-dm-serif',
-  display: 'swap',
-})
-
-const outfit = Outfit({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600'],
-  variable: '--font-outfit',
-  display: 'swap',
-})
-
-const dmMono = DM_Mono({
-  subsets: ['latin'],
-  weight: ['400', '500'],
-  variable: '--font-dm-mono',
-  display: 'swap',
-})
-
+import { DM_Sans, DM_Mono } from "next/font/google";
+import "./globals.css";
+import { Navbar } from "@/components/layout/Navbar";
+import { Footer } from "@/components/layout/Footer";
+const sans = DM_Sans({
+  subsets: ["latin"],
+  variable: "--font-dm-sans",
+  display: "swap",
+});
+const mono = DM_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-dm-mono",
+  display: "swap",
+});
 export const metadata = {
-  title: 'Le Fond — Systems that build businesses.',
+  metadataBase: new URL("https://www.lefondstudio.co.za"),
+  title: "Lead Generation & Funnel Systems South Africa | Le Fond",
   description:
-    'Operational infrastructure for construction and service businesses in South Africa. We build the systems that let a R10M contractor run like a R50M contractor.',
-}
-
+    "Le Fond builds lead generation, sales funnels and follow-up automation for South African service businesses. Capture, qualify, book and follow up.",
+  openGraph: {
+    siteName: "Le Fond",
+    locale: "en_ZA",
+    type: "website",
+    title: "Le Fond — Turn enquiries into bookings.",
+    description:
+      "Lead generation, funnels and customer follow-up systems for South African service businesses.",
+  },
+  twitter: {
+    card: "summary",
+    title: "Le Fond — Turn enquiries into bookings.",
+    description: "Capture. Qualify. Book. Follow up.",
+  },
+  robots: { index: false, follow: false },
+  icons: { icon: "/images/logo.png" },
+};
+const initTheme =
+  "try{var t=localStorage.getItem('lefond-theme');document.documentElement.dataset.theme=(t==='light'||t==='dark')?t:'dark'}catch(e){}";
 export default function RootLayout({ children }) {
   return (
     <html
-      lang="en"
-      className={`${dmSerif.variable} ${outfit.variable} ${dmMono.variable}`}
+      lang="en-ZA"
+      data-theme="dark"
+      suppressHydrationWarning
+      className={`${sans.variable} ${mono.variable}`}
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: initTheme }} />
+      </head>
       <body>
+        <a className="sr-only skip-link" href="#main">
+          Skip to content
+        </a>
         <Navbar />
-        <main>{children}</main>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "Le Fond",
+              url: "https://www.lefondstudio.co.za",
+              logo: "https://www.lefondstudio.co.za/images/logo.png",
+              areaServed: "South Africa",
+            }),
+          }}
+        />
+        <main id="main">{children}</main>
         <Footer />
       </body>
     </html>
-  )
+  );
 }

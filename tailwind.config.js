@@ -16,8 +16,8 @@ module.exports = {
       },
 
       fontFamily: {
-        serif: ['"DM Sans"', "system-ui", "sans-serif"],
-        sans: ['"DM Sans"', "system-ui", "sans-serif"],
+        serif: ["var(--font-dm-sans)", "system-ui", "sans-serif"],
+        sans: ["var(--font-dm-sans)", "system-ui", "sans-serif"],
         mono: ["var(--font-dm-mono)", "ui-monospace", "monospace"],
       },
 
