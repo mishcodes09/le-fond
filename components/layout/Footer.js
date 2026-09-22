@@ -17,8 +17,8 @@ export function Footer() {
               />
             </Link>
             <p>
-              Lead generation systems for businesses that can’t afford to lose
-              the next enquiry.
+              A focused South African studio building the systems between
+              interest and action.
             </p>
             <p>South Africa</p>
           </div>
@@ -46,8 +46,8 @@ export function Footer() {
         </div>
         <div className="footer-bottom">
           <span>
-            © {new Date().getFullYear()} Le Fond. Capture. Qualify. Book.
-            Follow up.
+            © {new Date().getFullYear()} Le Fond. Built with intent in South
+            Africa.
           </span>
           <div className="flex gap-5">
             <Link href="/privacy">Privacy Policy</Link>

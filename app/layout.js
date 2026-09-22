@@ -15,14 +15,14 @@ const mono = DM_Mono({
 });
 export const metadata = {
   metadataBase: new URL("https://www.lefondstudio.co.za"),
-  title: "Lead Generation & Funnel Systems South Africa | Le Fond",
+  title: "Le Fond | Independent Lead Systems Studio, South Africa",
   description:
-    "Le Fond builds lead generation, sales funnels and follow-up automation for South African service businesses. Capture, qualify, book and follow up.",
+    "Le Fond is an independent South African studio building lead capture, qualification, booking and follow-up systems for service businesses.",
   openGraph: {
     siteName: "Le Fond",
     locale: "en_ZA",
     type: "website",
-    title: "Le Fond — Turn enquiries into bookings.",
+    title: "Le Fond — The space between interest and action.",
     description:
       "Lead generation, funnels and customer follow-up systems for South African service businesses.",
   },

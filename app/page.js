@@ -1,8 +1,8 @@
 import { HomePage } from "@/components/sections/GrowthPages";
 export const metadata = {
-  title: "Lead Generation & Funnel Systems South Africa | Le Fond",
+  title: "Le Fond | Independent Lead Systems Studio, South Africa",
   description:
-    "Turn enquiries into bookings and qualified quotes. Le Fond connects lead generation, landing pages, CRM, WhatsApp automation and customer follow-up.",
+    "Le Fond is a focused South African studio building the systems between customer interest and business action: lead capture, qualification, booking and follow-up.",
   alternates: { canonical: "/" },
 };
 export default function Home() {

@@ -7,7 +7,8 @@ The approved strategic direction is implemented in the existing Next.js 14 appli
 - Home: `/` — lead generation, funnels and follow-up, organised around Capture / Convert / Follow Through.
 - Commerce: `/commerce` — the secondary Commerce Growth offer.
 - About: `/about`; Contact: `/contact`; preview legal information: `/privacy` and `/terms`.
-- Dark and light themes use the original logo and DM Sans. The theme control remembers the chosen mode locally. Dark uses black, white and greys; light uses white, dark typography and blue.
+- Dark and light themes use the original logo and DM Sans. The theme control remembers the chosen mode locally. The Le Fond identity uses warm stone, ink and electric violet with a bespoke signal-line motif.
+- The homepage now leads with Le Fond as a small independent systems studio: “We build the space between interest and action.” A studio manifesto makes the working philosophy explicit without adding unsupported claims.
 - The interactive six-stage workflow adapts to solar, dental, plumbing and B2B examples. It includes local example booking choices, finite playback, reduced-motion support and explicit example labels.
 - AI examples show routine replies and human escalation. The optional dashboard concept includes pipeline, approvals and reporting views, with simulated actions only.
 - Booking, audit, WhatsApp and email open accessible placeholder dialogs. These destinations are configured centrally in `lib/contact.js`.

@@ -182,41 +182,47 @@ export function HomePage() {
       <section className="hero" id="hero">
         <div className="wrap">
           <div className="hero-top">
-            <p className="kicker">Lead generation. Funnels. Follow-through.</p>
-            <span className="section-index">
-              BUILT FOR SOUTH AFRICAN BUSINESS
-            </span>
+            <p className="kicker">Independent systems studio · South Africa</p>
+            <span className="section-index">EST. WITH INTENT</span>
           </div>
           <div className="hero-grid">
-            <div>
+            <div className="hero-copy">
+              <p className="hero-wordmark" aria-hidden="true">
+                LE FOND
+              </p>
               <h1>
-                Turn enquiries
+                We build the space
                 <br />
-                into bookings.
+                <span className="quiet">between interest</span>
                 <br />
-                <span className="quiet">
-                  Keep quotes
-                  <br />
-                  moving.
-                </span>
+                and action.
               </h1>
               <p className="lede">
-                We build lead systems that capture, qualify and follow up with
-                enquiries—moving service businesses towards booked appointments
-                and qualified quotes. Automation does the repetitive work. Your
-                team stays in control.
+                Le Fond is a small, focused studio that designs the systems
+                behind better customer journeys—from the first enquiry to the
+                booked appointment, qualified quote and follow-up that keeps
+                things moving.
               </p>
               <div className="actions">
-                <ContactButton />
+                <ContactButton label="Start a project" />
                 <a href="#system" className="text-link">
-                  See How It Works <span aria-hidden="true">↓</span>
+                  See the system <span aria-hidden="true">↓</span>
                 </a>
               </div>
               <p className="hero-note">
-                One connected funnel. From first click to the next conversation.
+                Strategy · Experience · Automation · Care
               </p>
             </div>
-            <HeroLead />
+            <div className="hero-object">
+              <div className="signal-orbit" aria-hidden="true">
+                <span className="orbit orbit-one" />
+                <span className="orbit orbit-two" />
+                <span className="orbit-dot" />
+                <strong>Interest</strong>
+                <em>Action</em>
+              </div>
+              <HeroLead />
+            </div>
           </div>
           <div className="hero-strip">
             <span>
@@ -236,17 +242,17 @@ export function HomePage() {
       </section>
       <section className="section" id="problem">
         <div className="wrap">
-          <Top label="The gap between interest and action" index="01" />
+          <Top label="The part that usually gets lost" index="01" />
           <h2 className="headline problem-title">
-            A lead isn’t valuable
+            Attention is easy to count.
             <br />
-            <span>if nobody follows up.</span>
+            <span>Progress takes a system.</span>
           </h2>
           <div className="problem-bottom">
             <p className="lede">
-              Getting enquiries is only half the job. What happens afterwards
-              determines whether that interest has a path to revenue. A busy
-              inbox is not a sales process.
+              A website can attract attention and still leave the business doing
+              all the hard work by hand. Le Fond brings order to what happens
+              after someone raises their hand.
             </p>
             <div className="problem-list">
               {[
@@ -357,10 +363,43 @@ export function HomePage() {
           </div>
         </div>
       </section>
+      <section className="studio-statement" id="studio">
+        <div className="wrap studio-grid">
+          <div className="studio-mark" aria-hidden="true">
+            <span>LF</span>
+          </div>
+          <div>
+            <Top label="A small studio by design" index="04" />
+            <h2 className="headline">
+              Close to the work.
+              <br />
+              <span className="muted">Clear about the outcome.</span>
+            </h2>
+            <div className="studio-copy">
+              <p className="lede">
+                We work on a focused number of systems at a time. That keeps the
+                thinking sharp, the communication direct and the people making
+                decisions close to the people building the work.
+              </p>
+              <p>
+                Every engagement starts with the real customer journey. We use
+                design, code and automation where each one improves that
+                journey. The result should feel considered to the customer and
+                practical to the team running it.
+              </p>
+            </div>
+            <div className="studio-principles">
+              <span>Useful over impressive</span>
+              <span>Human at the handoff</span>
+              <span>Built to be operated</span>
+            </div>
+          </div>
+        </div>
+      </section>
       <section className="section section-soft" id="ai">
         <div className="wrap split">
           <div>
-            <Top label="Useful automation. Clear boundaries." index="04" />
+            <Top label="Useful automation. Clear boundaries." index="05" />
             <h2 className="headline">
               AI where it helps.
               <br />
@@ -393,7 +432,7 @@ export function HomePage() {
       </section>
       <section className="section" id="industries">
         <div className="wrap">
-          <Top label="Built around the way your business works" index="05" />
+          <Top label="Built around the way your business works" index="06" />
           <div className="workflow-intro">
             <h2 className="headline">
               One system.
@@ -429,7 +468,7 @@ export function HomePage() {
         <span id="results" aria-hidden="true" />
         <span id="case-study" aria-hidden="true" />
         <div className="wrap">
-          <Top label="Optional dashboard capability" index="06" />
+          <Top label="Optional dashboard capability" index="07" />
           <div className="workflow-intro">
             <h2 className="headline">
               A command centre
@@ -453,7 +492,7 @@ export function HomePage() {
       </section>
       <section className="section" id="how-it-works">
         <div className="wrap">
-          <Top label="How we work" index="07" />
+          <Top label="How we work" index="08" />
           <h2 className="headline">
             From a disconnected process
             <br />
@@ -492,7 +531,7 @@ export function HomePage() {
       </section>
       <section className="section section-soft" id="investment">
         <div className="wrap">
-          <Top label="A clear starting point" index="08" />
+          <Top label="A clear starting point" index="09" />
           <div className="workflow-intro">
             <h2 className="headline">
               Invest in the system
@@ -764,19 +803,18 @@ export function AboutPage() {
         <div className="wrap">
           <p className="kicker">About Le Fond</p>
           <h1>
-            We build the system
+            Small by design.
             <br />
-            between{" "}
             <span className="muted">
-              enquiry
+              Serious about
               <br />
-              and revenue.
+              what we build.
             </span>
           </h1>
           <p className="lede">
-            Le Fond focuses on lead generation, funnels and customer follow-up
-            automation for service businesses. The work connects the moment
-            someone shows interest with the steps your team takes next.
+            Le Fond is an independent systems studio. We combine strategy,
+            experience design, code and thoughtful automation to make the path
+            from customer interest to business action work better.
           </p>
           <div className="actions">
             <ContactButton />

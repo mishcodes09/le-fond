@@ -30,11 +30,8 @@ export function Navbar() {
   }, [open]);
   return (
     <header className="site-header">
-      <div className="preview-bar">
-        Design preview · Contact options are placeholders
-      </div>
       <div className="wrap nav-row">
-        <Link href="/" aria-label="Le Fond home">
+        <Link href="/" aria-label="Le Fond home" className="brand-lockup">
           <Image
             className="brand-logo"
             src="/images/logo.png"
@@ -43,6 +40,7 @@ export function Navbar() {
             alt="Le Fond"
             priority
           />
+          <span>LE FOND</span>
         </Link>
         <nav className="nav-links" aria-label="Main navigation">
           {links.map(([name, href]) => (
