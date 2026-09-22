@@ -1,5 +1,6 @@
 import { DM_Sans, DM_Mono } from "next/font/google";
 import "./globals.css";
+import "./studio.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 const sans = DM_Sans({
@@ -35,12 +36,12 @@ export const metadata = {
   icons: { icon: "/images/logo.png" },
 };
 const initTheme =
-  "try{var t=localStorage.getItem('lefond-theme');document.documentElement.dataset.theme=(t==='light'||t==='dark')?t:'dark'}catch(e){}";
+  "try{var t=localStorage.getItem('lefond-studio-theme');document.documentElement.dataset.theme=(t==='light'||t==='dark')?t:'light'}catch(e){}";
 export default function RootLayout({ children }) {
   return (
     <html
       lang="en-ZA"
-      data-theme="dark"
+      data-theme="light"
       suppressHydrationWarning
       className={`${sans.variable} ${mono.variable}`}
     >

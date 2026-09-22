@@ -1,4 +1,4 @@
-import { HomePage } from "@/components/sections/GrowthPages";
+import { StudioHome } from "@/components/sections/StudioHome";
 export const metadata = {
   title: "Le Fond | Independent Lead Systems Studio, South Africa",
   description:
@@ -6,5 +6,5 @@ export const metadata = {
   alternates: { canonical: "/" },
 };
 export default function Home() {
-  return <HomePage />;
+  return <StudioHome />;
 }

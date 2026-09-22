@@ -7,8 +7,9 @@ import { ContactButton } from "@/components/ui/ContactButton";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 const links = [
   ["Solutions", "/#services"],
-  ["How it works", "/#how-it-works"],
-  ["Industries", "/#industries"],
+  ["Why Le Fond", "/#problem"],
+  ["Examples", "/#examples"],
+  ["Pricing", "/#investment"],
   ["Commerce", "/commerce"],
   ["About", "/about"],
 ];
@@ -56,7 +57,7 @@ export function Navbar() {
         <div className="nav-tools">
           <ThemeToggle />
           <div className="nav-cta">
-            <ContactButton />
+            <ContactButton label="Book a call" />
           </div>
           <button
             ref={trigger}

@@ -7,7 +7,7 @@ The founders' latest brief supersedes earlier positioning and palette rules.
 - AI is bounded assistance with human escalation, not the primary product or a replacement for staff.
 - Commerce Growth is a secondary offer. Custom dashboard functionality is a separately scoped premium add-on.
 - Preserve the original logo file and DM Sans font. DM Mono remains for small technical labels.
-- Dark theme: near-black, white and neutral greys. Light theme: white, near-black and blue. Use shared CSS variables for all active pages and states.
+- Latest visual direction: closely follow Squareblack's layout while keeping Le Fond content, logo and DM Sans. Light is the default: white, black and lime accents. Dark is optional. `StudioHome.js` and `app/studio.css` implement the current homepage. Use shared CSS variables for active pages and states.
 - No invented proof, autonomous-AI promises or guaranteed outcomes. Demonstrations must say Example workflow or Example data.
 - Build My Lead System leads to a discovery call. Request a System Audit is the secondary contact action.
 - All contact destinations remain explicit placeholders until supplied. Forms do not submit or persist data in this preview. Keep noindex until the release is ready.
