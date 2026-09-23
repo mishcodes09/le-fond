@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ContactButton } from "@/components/ui/ContactButton";
 import { Workflow } from "./Workflow";
 import { CustomerCareCard } from "./CustomerCareCard";
-import { PriceCard } from "./GrowthPages";
+import { PriceCard, PricingNote, pricingFAQs } from "./GrowthPages";
 
 function MiniSite({ type = "solar" }) {
   const commerce = type === "commerce";
@@ -385,19 +385,24 @@ export function StudioHome() {
       <section className="sf-section" id="investment">
         <div className="sf-container">
           <SectionTitle small="Pricing.">
-            A practical starting point.
-            <br />A scope that fits.
+            Start small.
+            <br />
+            Build what your business needs.
           </SectionTitle>
+          <p className="pricing-intro">
+            Get a clearer path from first enquiry to next step. Start with the
+            essentials and add more when you need it.
+          </p>
+          <p className="pricing-intro">
+            Capture and manage enquiries with the first two packages. Add paid
+            campaign management with Lead Generation &amp; Growth.
+          </p>
           <div className="pricing-grid">
             <PriceCard />
             <PriceCard type="engine" />
+            <PriceCard type="growth" />
           </div>
-          <p className="pricing-note">
-            Indicative pricing, based on agreed scope. Software licences,
-            messaging usage and advertising spend may be additional. Applicable
-            VAT is confirmed in the proposal. No lead volume or revenue is
-            guaranteed.
-          </p>
+          <PricingNote />
         </div>
       </section>
       <section className="sf-section" id="industries">
@@ -438,28 +443,7 @@ export function StudioHome() {
             Clear answers.
           </SectionTitle>
           <div className="faq">
-            {[
-              [
-                "Do you generate leads or handle them?",
-                "Both can form part of the scope. The core system connects acquisition and landing pages with lead capture, qualification, booking and follow-up. Advertising spend is separate.",
-              ],
-              [
-                "Do we need a new website or CRM?",
-                "We assess the tools you already use. Improvements and integrations may be enough; a rebuild is recommended only where the agreed scope calls for it.",
-              ],
-              [
-                "Does AI replace our team?",
-                "No. It assists with repeatable communication within agreed boundaries. Uncertain or sensitive conversations are handed to the business.",
-              ],
-              [
-                "What happens after launch?",
-                "Ongoing monitoring, reporting and improvement are agreed in your monthly scope. Support expectations, software costs and responsibilities are set out in the proposal.",
-              ],
-              [
-                "How do we get started?",
-                "Book a 15-minute discovery call through Cal.com, or contact us on WhatsApp or email to discuss your lead system or request an audit.",
-              ],
-            ].map(([q, a]) => (
+            {pricingFAQs.map(([q, a]) => (
               <details key={q}>
                 <summary>{q}</summary>
                 <p>{a}</p>

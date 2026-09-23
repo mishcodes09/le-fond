@@ -48,97 +48,162 @@ export function ContactSection({ commerce = false }) {
 }
 const pricing = {
   capture: {
-    name: "Capture Foundation",
-    label: "Start with the essentials",
-    setup: "R15,000–R25,000",
-    monthly: "R1,500–R3,000",
+    name: "Enquiry Essentials",
+    label: "Give every enquiry a clear way in.",
+    setup: "From R7,500 once-off",
     description:
-      "For service businesses that need a clearer entry point and an organised lead pipeline.",
+      "For businesses that need a focused page and an organised place to manage enquiries.",
     items: [
-      "Focused landing flow or 5–7 page website",
-      "Enquiry capture and CRM pipeline",
-      "One confirmation / follow-up automation",
-      "Analytics setup and team training",
+      "One landing page for one service or offer",
+      "Enquiry form and WhatsApp contact button",
+      "Simple lead pipeline to track enquiries",
+      "Automatic email confirmation for form submissions",
+      "Basic enquiry tracking and a team handover session",
+      "30 days of support for the delivered setup",
     ],
-    note: "Ad management, ecommerce and custom integrations are outside this scope.",
+    note: "No ongoing management fee required. Hosting and any required software are quoted separately.",
+    cta: "Start with the essentials",
   },
   engine: {
-    name: "Lead-to-Booking Engine",
-    label: "The core lead system",
-    setup: "R30,000–R55,000",
-    monthly: "R5,000–R9,000",
+    name: "Booking & Follow-Up",
+    label: "Make it easier to book. Make follow-up consistent.",
+    setup: "From R12,500 once-off",
     description:
-      "Connect acquisition, qualification and follow-up around a booking or quote workflow.",
+      "For businesses receiving enquiries but losing time and opportunities between first contact, appointments and quotes.",
+    includes: "Everything in Enquiry Essentials, plus:",
     items: [
-      "Landing / website improvements and one paid channel",
-      "Lead capture, qualification and CRM",
-      "Booking, quote and WhatsApp / email follow-up",
-      "Call / form tracking and monthly optimisation",
+      "Qualification questions to collect useful details upfront",
+      "One booking or quote-request workflow",
+      "One automated follow-up sequence through email or WhatsApp",
+      "Clear lead stages and handoff to your team",
+      "Appointment or quote reminders within the agreed workflow",
+      "Team training and 30 days of launch support",
     ],
-    note: "Advertising spend, creative production and sales closing are separate.",
+    note: "Optional ongoing care from R1,500/month: workflow checks, troubleshooting and one small adjustment each month.",
+    cta: "Improve my follow-up",
   },
-  commerce: {
-    name: "Commerce Growth System",
-    label: "For established online stores",
-    setup: "R45,000–R90,000",
-    monthly: "R8,000–R18,000",
+  growth: {
+    name: "Lead Generation & Growth",
+    label: "Bring in enquiries. Give each one a next step.",
+    setup: "From R15,000 setup",
+    monthly: "+ R3,500/month",
     description:
-      "Improve the store experience and the communication that brings customers back.",
+      "For businesses ready to advertise one service and improve the journey from first click to qualified enquiry.",
     items: [
-      "Shopify / WooCommerce implementation as scoped",
-      "Local payment and shipping configuration",
-      "Cart recovery and customer lifecycle flows",
-      "Analytics, conversion roadmap and monthly tests",
+      "One campaign landing page",
+      "Campaign setup and management on Google Ads or Meta",
+      "Lead capture, qualification and a simple pipeline",
+      "One booking or quote-request workflow",
+      "One follow-up sequence",
+      "Conversion tracking",
+      "Monthly campaign improvements and a plain-language results review",
     ],
-    note: "Apps, advertising, ERP migration, fulfilment and custom apps are separate.",
+    note: "Advertising spend is separate and paid directly to the advertising platform.",
+    extra:
+      "Already have a suitable website or lead system? We’ll quote for the work you actually need.",
+    cta: "Plan my lead campaign",
   },
 };
 export function PriceCard({ type = "capture" }) {
   const p = pricing[type];
   return (
     <article className={`price-card ${type === "engine" ? "featured" : ""}`}>
-      <div className="price-label">
-        <span className="kicker">{p.label}</span>
-        {type === "engine" && <span className="tag">Core offer</span>}
-      </div>
+      {type === "engine" && (
+        <span className="package-highlight">
+          For businesses already getting enquiries
+        </span>
+      )}
       <h3>{p.name}</h3>
+      <p className="package-tagline">{p.label}</p>
       <p>{p.description}</p>
       <div className="price-numbers">
-        <small>Once-off setup</small>
         <strong>{p.setup}</strong>
-        <p className="monthly">
-          {p.monthly} <span>/ month</span>
-        </p>
+        {p.monthly && (
+          <p className="monthly">
+            {p.monthly}
+            <small>Campaign management</small>
+          </p>
+        )}
       </div>
+      {p.includes && <p className="package-includes">{p.includes}</p>}
       <ul>
         {p.items.map((i) => (
           <li key={i}>{i}</li>
         ))}
       </ul>
-      <p>{p.note}</p>
+      <div className="package-costs">
+        <p>{p.note}</p>
+        {p.extra && <p>{p.extra}</p>}
+      </div>
       <div className="actions">
-        <ContactButton
-          label={
-            type === "commerce"
-              ? "Discuss Commerce Growth"
-              : "Build My Lead System"
-          }
-          secondary={type !== "engine"}
-        />
+        <ContactButton label={p.cta} secondary={type !== "engine"} />
       </div>
     </article>
   );
 }
-function PricingNote() {
+export function PricingNote() {
   return (
-    <p className="pricing-note">
-      Indicative pricing, based on agreed scope. Software licences, messaging
-      usage and advertising spend may be additional. Applicable VAT is confirmed
-      in the proposal. A custom dashboard is a separately scoped add-on. No lead
-      volume or revenue is guaranteed.
-    </p>
+    <div className="pricing-scope">
+      <h3>Payment & scope</h3>
+      <ul>
+        <li>Setup payments: 50% upfront and 50% at launch.</li>
+        <li>
+          Starting prices cover one business, one service or offer, and the
+          workflows listed. Your proposal confirms deliverables and the full
+          cost before work begins.
+        </li>
+        <li>
+          Hosting, software and messaging costs are itemised where required.
+          Advertising spend, additional pages, creative production, extra
+          channels and custom integrations are separate.
+        </li>
+        <li>Any applicable VAT is shown in your quote.</li>
+        <li>
+          Your team handles sales conversations and important decisions. Lead
+          volumes and sales results are not guaranteed.
+        </li>
+      </ul>
+      <p>
+        Full websites and complex integrations are available as separately
+        quoted work. Ongoing service terms are confirmed in your proposal.
+      </p>
+    </div>
   );
 }
+export const pricingFAQs = [
+  [
+    "Do you generate leads or handle them?",
+    "Enquiry Essentials and Booking & Follow-Up help capture and manage enquiries. Lead Generation & Growth also includes paid campaign management on Google Ads or Meta to attract enquiries.",
+  ],
+  [
+    "Do I have to pay a monthly fee?",
+    "Enquiry Essentials and Booking & Follow-Up are once-off setups. Ongoing care is optional, and hosting or software costs may continue. Lead Generation & Growth includes monthly campaign management at R3,500/month.",
+  ],
+  [
+    "Is advertising spend included?",
+    "No. Advertising spend is separate and paid directly to Google Ads or Meta.",
+  ],
+  [
+    "Do I need a new website?",
+    "Not necessarily. We can use suitable existing pages and lead systems, and your proposal reflects the work you actually need. Full websites and complex integrations are quoted separately.",
+  ],
+  [
+    "What happens after launch?",
+    "The two once-off packages include 30 days of support for the delivered setup. Optional ongoing care starts at R1,500/month for workflow checks, troubleshooting and one small adjustment each month. Lead Generation & Growth includes ongoing campaign management, monthly improvements and a results review.",
+  ],
+  [
+    "How do payments work?",
+    "Setup payments are 50% upfront and 50% at launch. Ongoing fees, billing dates and service terms are confirmed in your proposal.",
+  ],
+  [
+    "Does AI replace our team?",
+    "No. Automation and AI support repeatable tasks within agreed boundaries. Your team handles sales conversations and important decisions; uncertain or sensitive conversations are handed to a person.",
+  ],
+  [
+    "How do we get started?",
+    "Book a 15-minute discovery call through Cal.com, or contact us on WhatsApp or email to discuss your business.",
+  ],
+];
 const industries = [
   [
     "Healthcare",
@@ -608,36 +673,7 @@ function FAQ() {
           </h2>
         </div>
         <div className="faq">
-          {[
-            [
-              "Do you generate leads or handle them?",
-              "The core system connects both sides: an agreed acquisition channel and landing page, then capture, qualification and follow-up. Scope depends on where the gap is. Advertising spend is separate, and lead volumes are not guaranteed.",
-            ],
-            [
-              "Do we need a new website or CRM?",
-              "Not necessarily. We assess your current tools first. A focused landing page or a better connection between existing tools may be enough. Any replacement or migration is scoped before work starts.",
-            ],
-            [
-              "Can this work for my industry?",
-              "The underlying flow is adaptable: capture, qualify, book or quote, follow up and hand off. Questions, routing rules and communication are designed around your industry and team.",
-            ],
-            [
-              "Will AI replace our customer-facing team?",
-              "No. AI can handle defined tasks and common questions using agreed information. Your team owns judgement, pricing and sensitive decisions. Uncertain situations are escalated with the conversation context.",
-            ],
-            [
-              "Does every package include a custom dashboard?",
-              "No. A custom client dashboard is an optional premium capability. The need, functionality, access controls and price are agreed separately.",
-            ],
-            [
-              "What happens after launch?",
-              "The monthly engagement covers the monitoring and improvement work agreed in your scope. Support hours, response expectations, licences and usage costs are set out in the proposal. We do not promise 24/7 human support.",
-            ],
-            [
-              "Can I book through this preview?",
-              "Book a 15-minute discovery call through Cal.com, or contact us on WhatsApp or email. The preview form sends and saves nothing.",
-            ],
-          ].map(([q, a]) => (
+          {pricingFAQs.map(([q, a]) => (
             <details key={q}>
               <summary>{q}</summary>
               <p>{a}</p>
@@ -790,7 +826,7 @@ export function CommercePage() {
             </p>
             <PricingNote />
           </div>
-          <PriceCard type="commerce" />
+          <PriceCard type="growth" />
         </div>
       </section>
       <ContactSection commerce />
@@ -984,8 +1020,8 @@ export function LegalPage({ type }) {
               <p>
                 Displayed prices are indicative and depend on agreed scope.
                 Software licences, usage, media spend and applicable VAT are
-                confirmed in a proposal. No lead volume, revenue or conversion result is
-                guaranteed.
+                confirmed in a proposal. No lead volume, revenue or conversion
+                result is guaranteed.
               </p>
               <h2>Final engagement terms</h2>
               <p>

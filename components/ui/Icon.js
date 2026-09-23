@@ -1,4 +1,10 @@
 const paths = {
+  grid: "M3 3h6v6H3ZM15 3h6v6h-6ZM3 15h6v6H3ZM15 15h6v6h-6Z",
+  message: "M4 4h16v12H9l-5 4ZM8 8h8M8 12h5",
+  close: "m6 6 12 12M6 18 18 6",
+  mail: "M3 5h18v14H3ZM3 5l9 7 9-7",
+  calendar: "M4 5h16v16H4ZM8 3v4M16 3v4M4 10h16",
+
   arrowUpRight: "M7 17 17 7M7 7h10v10",
   arrowRight: "M4 12h16m-6-6 6 6-6 6",
   arrowDown: "M12 4v16m-6-6 6 6 6-6",

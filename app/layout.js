@@ -3,6 +3,7 @@ import "./globals.css";
 import "./studio.css";
 import "./system-cards.css";
 import { Navbar } from "@/components/layout/Navbar";
+import { QuickContact } from "@/components/layout/QuickContact";
 import { Footer } from "@/components/layout/Footer";
 const sans = DM_Sans({
   subsets: ["latin"],
@@ -69,6 +70,7 @@ export default function RootLayout({ children }) {
         />
         <main id="main">{children}</main>
         <Footer />
+        <QuickContact />
       </body>
     </html>
   );
