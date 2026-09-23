@@ -128,207 +128,185 @@ export function Workflow() {
   const [sector, setSector] = useState("Solar");
   const [active, setActive] = useState(0);
   const [slot, setSlot] = useState("");
-  const reduced = useReducedMotion();
+  const [qualified, setQualified] = useState(false);
   const data = industries[sector];
   const demo = useDemoClock(() => {
-    setActive((x) => (x + 1) % stages.length);
-    if (active === 5) setSlot("");
-  }, 6000);
-  const playing = demo.playing;
-  const setPlaying = (value) => demo.setPaused(!value);
-  const content = [
-    {
-      title: "The enquiry has somewhere to go.",
-      description:
-        "Traffic from a campaign, search or referral reaches a focused page. The enquiry is captured with the details your business actually needs.",
-      status: "Enquiry captured",
-      speaker: "Customer",
-      message: data.message,
-      rows: [
-        ["Name", "Example customer"],
-        ["Phone", "Captured in the form"],
-        ["Location", "Johannesburg"],
-      ],
-    },
-    {
-      title: "Useful questions. A clearer conversation.",
-      description:
-        "Rules and AI-assisted communication gather information before your team steps in. Qualification stays within agreed boundaries.",
-      status: "Qualification complete",
-      speaker: "Automation → customer",
-      message: data.question,
-      rows: [
-        ["Customer reply", data.response],
-        ["Information", data.detail],
-        ["Sensitive questions", "Escalate to a person"],
-      ],
-    },
-    {
-      title: "A booking or quote, with a next step.",
-      description:
-        "Offer approved appointment times or route the brief to the person who prepares quotes. Pricing decisions stay with the business.",
-      status: slot ? "Example time selected" : "Ready to arrange",
-      speaker: "Booking assistant",
-      message: "Would Tuesday at 14:00 or Wednesday at 10:00 work?",
-      rows: [
-        ["Workflow", data.route],
-        ["Selected time", slot || "Awaiting a preference"],
-        ["Pricing", "Prepared by your team"],
-      ],
-    },
-    {
-      title: "Follow-up becomes part of the process.",
-      description:
-        "Send agreed confirmations and reminders. Keep an outstanding quote visible and give the customer a clear way to respond.",
-      status: "Follow-up scheduled",
-      speaker: "Automated follow-up",
-      message:
-        "Your request is with the team. We’ll confirm the next step. Reply here if anything changes.",
-      rows: [
-        ["Confirmation", "Request received"],
-        ["Reminder", "Based on agreed timing"],
-        ["Channel", "Email or WhatsApp"],
-      ],
-    },
-    {
-      title: "The right person gets the context.",
-      description:
-        "The conversation, qualification details and next action arrive together. Uncertain or sensitive questions are flagged for human review.",
-      status: "Human review",
-      speaker: "Internal handoff",
-      message:
-        "A qualified enquiry is ready. Review the brief and confirm the next step with the customer.",
-      rows: [
-        ["Assigned to", data.owner],
-        ["Conversation", "Summary attached"],
-        ["Decision", "Owned by your business"],
-      ],
-    },
-    {
-      title: "See what needs attention.",
-      description:
-        "Track the enquiry through the funnel. Use response time, follow-up completion and booking or quote progress to guide improvements.",
-      status: "Visible in reporting",
-      speaker: "Workflow record",
-      message:
-        "The enquiry has a source, an owner and a next action. Its progress can now be reviewed.",
-      rows: [
-        ["Source", "Campaign landing page"],
-        ["Stage", "With the team"],
-        ["Measures", "Response, progress, follow-up"],
-      ],
-    },
-  ][active];
-  function chooseStage(i) {
-    setPlaying(false);
-    setActive(i);
+    setActive((step) => (step + 1) % stages.length);
+    if (active === 5) {
+      setSlot("");
+      setQualified(false);
+    }
+  }, 5500);
+  function go(step) {
+    demo.setPaused(true);
+    setActive(step);
   }
+  const scenes = [
+    {
+      title: "Interest lands here.",
+      speaker: "New enquiry",
+      message: data.message,
+      status: "Enquiry captured",
+      detail: data.service,
+    },
+    {
+      title: "Ask what matters.",
+      speaker: "Your funnel",
+      message: data.question,
+      status: qualified ? "Details captured" : "Gather the right details",
+      detail: qualified ? data.response : data.detail,
+    },
+    {
+      title: "Give them a next step.",
+      speaker: "Arrange a time",
+      message: "Which time suits you?",
+      status: slot ? "Preference saved" : "Choose an example time",
+      detail: slot || data.route,
+    },
+    {
+      title: "Keep the conversation going.",
+      speaker: "Follow-up",
+      message: "Your request is with the team. We’ll confirm your next step.",
+      status: "Follow-up ready",
+      detail: "Confirmation · Reminder · Quote follow-up",
+    },
+    {
+      title: "Your team takes it from here.",
+      speaker: data.owner,
+      message:
+        "Enquiry details and conversation attached. Ready for your review.",
+      status: "Human handoff",
+      detail: "Your team confirms availability and pricing",
+    },
+    {
+      title: "Know where every lead stands.",
+      speaker: "Funnel progress",
+      message: "One enquiry. A clear owner. A next action.",
+      status: "Ready to review",
+      detail: "Source · Stage · Next action",
+    },
+  ];
+  const scene = scenes[active];
+  const actions = [
+    "Capture this enquiry",
+    "Continue to booking",
+    "See the follow-up",
+    "Hand over to the team",
+    "View funnel progress",
+    "Try again",
+  ];
   return (
-    <div className="workflow-box" ref={demo.ref}>
+    <div className="workflow-box funnel-demo" ref={demo.ref}>
       <div className="workflow-toolbar">
-        <div>
-          <span className="kicker">Example workflow</span>
-          <p className="muted text-xs mt-1">
-            Choose a business. Follow one enquiry.
-          </p>
-        </div>
-        <DemoToggle demo={demo} name="workflow tour" />
+        <span className="kicker">Interactive example</span>
         <div role="group" aria-label="Example industry" className="segmented">
-          {Object.keys(industries).map((s) => (
+          {Object.keys(industries).map((name) => (
             <button
-              key={s}
-              aria-pressed={s === sector}
+              key={name}
+              aria-pressed={sector === name}
               onClick={() => {
-                setSector(s);
+                setSector(name);
                 setActive(0);
                 setSlot("");
-                setPlaying(true);
+                setQualified(false);
+                demo.setPaused(false);
               }}
             >
-              {s}
+              {name}
             </button>
           ))}
         </div>
-      </div>
-      <div className="flow-upstream">
-        Traffic <Icon name="arrowRight" /> Landing page / website{" "}
-        <Icon name="arrowRight" /> Your connected lead system
+        <DemoToggle demo={demo} name="workflow tour" />
       </div>
       <div role="group" aria-label="Lead flow stages" className="flow-steps">
-        {stages.map((s, i) => (
+        {stages.map((stage, i) => (
           <button
-            key={s}
             className="flow-step"
+            key={stage}
             aria-pressed={active === i}
-            onClick={() => chooseStage(i)}
+            onClick={() => go(i)}
           >
             <small>
-              0{i + 1} {active > i ? <Icon name="check" /> : null}
+              0{i + 1} {active > i && <Icon name="check" />}
             </small>
-            {s}
+            {stage}
           </button>
         ))}
       </div>
-      <div aria-live={playing ? "off" : "polite"}>
+      <div className="funnel-progress" aria-hidden="true">
+        <span style={{ width: `${((active + 1) / stages.length) * 100}%` }} />
+      </div>
+      <div aria-live={demo.playing ? "off" : "polite"}>
         <AnimatePresence mode="wait" initial={false}>
           <motion.div
+            className="funnel-scene"
             key={`${sector}-${active}`}
-            initial={{ opacity: 0, y: reduced ? 0 : 8 }}
+            initial={{ opacity: 0, y: demo.reduced ? 0 : 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: reduced ? 0 : 0.18 }}
-            className="flow-stage"
+            transition={{ duration: demo.reduced ? 0 : 0.2 }}
           >
-            <div>
-              <span className="tag">{content.status}</span>
-              <h3>{content.title}</h3>
-              <p className="lede">{content.description}</p>
+            <div className="funnel-context">
+              <span className="kicker">
+                {sector} / 0{active + 1}
+              </span>
+              <h3>{scene.title}</h3>
+              <span className="funnel-status">
+                <Icon name="check" /> {scene.status}
+              </span>
+            </div>
+            <div className="funnel-conversation">
+              <span className="kicker">{scene.speaker}</span>
+              <p className="funnel-message">“{scene.message}”</p>
+              <div className="funnel-detail">
+                <IconText>{scene.detail}</IconText>
+              </div>
+              {active === 1 && !qualified && (
+                <button
+                  className="funnel-response"
+                  onClick={() => {
+                    setQualified(true);
+                    demo.setPaused(true);
+                  }}
+                >
+                  {data.response} <Icon name="arrowUpRight" />
+                </button>
+              )}
               {active === 2 && (
                 <div
                   className="slot-list"
                   role="group"
                   aria-label="Example appointment times"
                 >
-                  {["Tuesday · 14:00", "Wednesday · 10:00"].map((t) => (
+                  {["Tuesday · 14:00", "Wednesday · 10:00"].map((time) => (
                     <button
-                      key={t}
-                      aria-pressed={slot === t}
+                      key={time}
+                      aria-pressed={slot === time}
                       onClick={() => {
-                        setSlot(t);
-                        setPlaying(false);
+                        setSlot(time);
+                        demo.setPaused(true);
                       }}
                     >
-                      {t}
+                      {time}
                     </button>
                   ))}
                 </div>
               )}
-            </div>
-            <div className="flow-record">
-              <span className="kicker">
-                <IconText>{content.speaker}</IconText>
-              </span>
-              <p className="text-sm leading-relaxed mt-4">
-                “{content.message}”
-              </p>
-              <dl>
-                {content.rows.map(([k, v]) => (
-                  <div className="data-row" key={k}>
-                    <dt>{k}</dt>
-                    <dd>
-                      <IconText>{v}</IconText>
-                    </dd>
-                  </div>
-                ))}
-              </dl>
+              <button
+                className="button funnel-action"
+                onClick={() => {
+                  if (active === 5) {
+                    setSlot("");
+                    setQualified(false);
+                  }
+                  go((active + 1) % stages.length);
+                }}
+              >
+                {actions[active]} <Icon name="arrowRight" />
+              </button>
             </div>
           </motion.div>
         </AnimatePresence>
-      </div>
-      <div className="flow-controls">
-        <span className="kicker">
-          Illustration only · Nothing sent or booked
-        </span>
       </div>
     </div>
   );

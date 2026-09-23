@@ -8,9 +8,8 @@ import { ThemeToggle } from "@/components/ui/ThemeToggle";
 const links = [
   ["Solutions", "/#services"],
   ["Why Le Fond", "/#problem"],
-  ["Examples", "/#examples"],
+  ["Try the funnel", "/#system"],
   ["Pricing", "/#investment"],
-  ["Commerce", "/commerce"],
   ["About", "/about"],
 ];
 export function Navbar() {

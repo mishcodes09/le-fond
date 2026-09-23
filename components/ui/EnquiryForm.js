@@ -29,8 +29,8 @@ export function EnquiryForm() {
         <select name="interest">
           <option>My lead system</option>
           <option>A system audit</option>
-          <option>Commerce growth</option>
-          <option>A dashboard add-on</option>
+          <option>Lead generation</option>
+          <option>A sales funnel</option>
         </select>
       </label>
       <label>

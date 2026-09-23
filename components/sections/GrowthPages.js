@@ -635,7 +635,7 @@ function FAQ() {
             ],
             [
               "Can I book through this preview?",
-              "Book a 30-minute discovery call through Calendly, or contact us on WhatsApp or email. The preview form sends and saves nothing.",
+              "Book a 15-minute discovery call through Cal.com, or contact us on WhatsApp or email. The preview form sends and saves nothing.",
             ],
           ].map(([q, a]) => (
             <details key={q}>
@@ -813,9 +813,10 @@ export function AboutPage() {
             </span>
           </h1>
           <p className="lede">
-            Le Fond is an independent systems studio. We combine strategy,
-            experience design, code and thoughtful automation to make the path
-            from customer interest to business action work better.
+            Le Fond builds lead generation campaigns and sales funnels for
+            service businesses. We connect the first click to a qualified
+            enquiry, then help your team move the conversation towards a booking
+            or quote.
           </p>
           <div className="actions">
             <ContactButton />
@@ -848,7 +849,7 @@ export function AboutPage() {
               [
                 "03",
                 "Define the work",
-                "Agree scope, responsibilities, costs and success measures. A custom dashboard is a separate capability, not a hidden dependency.",
+                "Agree the audience, campaign, funnel, responsibilities and success measures before building.",
               ],
               [
                 "04",
@@ -916,8 +917,8 @@ export function ContactPage() {
               />
             </div>
             <p className="pricing-note">
-              South Africa · Book a 30-minute discovery call through Calendly,
-              or speak to us on WhatsApp or email.
+              South Africa · Book a 15-minute discovery call through Cal.com, or
+              speak to us on WhatsApp or email.
             </p>
           </div>
           <EnquiryForm />
@@ -949,17 +950,17 @@ export function LegalPage({ type }) {
               <h2>Contact details and enquiries</h2>
               <p>
                 WhatsApp and email links open the relevant communication
-                service. Booking links open Calendly. The separate audit button
+                service. Booking links open Cal.com. The separate audit button
                 is currently a placeholder. The preview enquiry form does not
-                submit or save the details entered. Interactive workflow and
-                dashboard demonstrations use example information.
+                submit or save the details entered. The interactive funnel
+                demonstration uses example information.
               </p>
               <h2>Theme preference</h2>
               <p>
                 The site stores your chosen dark or light theme in your
-                browser’s local storage under “lefond-theme”. This preference
-                stays on this device and can be cleared through your browser
-                settings.
+                browser’s local storage under “lefond-studio-theme”. This
+                preference stays on this device and can be cleared through your
+                browser settings.
               </p>
               <h2>Before collecting enquiries</h2>
               <p>
@@ -975,7 +976,7 @@ export function LegalPage({ type }) {
               <h2>A preview, not a live service</h2>
               <p>
                 This website demonstrates the proposed Le Fond services and
-                design. Contact links open Calendly, WhatsApp or your email app.
+                design. Contact links open Cal.com, WhatsApp or your email app.
                 Simulated workflows do not place orders, book appointments or
                 send communications.
               </p>
@@ -983,8 +984,7 @@ export function LegalPage({ type }) {
               <p>
                 Displayed prices are indicative and depend on agreed scope.
                 Software licences, usage, media spend and applicable VAT are
-                confirmed in a proposal. Dashboard development is separately
-                scoped. No lead volume, revenue or conversion result is
+                confirmed in a proposal. No lead volume, revenue or conversion result is
                 guaranteed.
               </p>
               <h2>Final engagement terms</h2>

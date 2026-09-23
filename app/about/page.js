@@ -1,6 +1,6 @@
 import { AboutPage } from "@/components/sections/GrowthPages";
 export const metadata = {
-  title: "About Le Fond | Lead Generation & Automation Systems",
+  title: "About Le Fond | Lead Generation & Sales Funnels",
   description:
     "Our approach to connected lead generation, funnels and customer follow-up systems for South African service businesses.",
   alternates: { canonical: "/about" },

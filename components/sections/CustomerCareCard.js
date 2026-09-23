@@ -169,10 +169,6 @@ export function CustomerCareCard() {
           </p>
         </div>
       </div>
-      <footer className="care-footer">
-        <span>lefondstudio.co.za</span>
-        <span className="kicker">Illustrative workflow</span>
-      </footer>
     </article>
   );
 }

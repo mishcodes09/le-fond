@@ -17,8 +17,8 @@ export function Footer() {
               />
             </Link>
             <p>
-              A focused South African studio building the systems between
-              interest and action.
+              Lead generation and sales funnels for South African service
+              businesses.
             </p>
             <p>South Africa</p>
           </div>
@@ -26,8 +26,6 @@ export function Footer() {
             <h3>What we build</h3>
             <Link href="/#services">Lead Generation</Link>
             <Link href="/#system">Funnels</Link>
-            <Link href="/#ai">Automation</Link>
-            <Link href="/commerce">Commerce</Link>
           </nav>
           <nav aria-label="Company footer">
             <h3>Le Fond</h3>
@@ -54,8 +52,8 @@ export function Footer() {
         </div>
         <div className="footer-bottom">
           <span>
-            © {new Date().getFullYear()} Le Fond. Built with intent in South
-            Africa.
+            © {new Date().getFullYear()} Le Fond. Le Fond is a trademark of
+            Fond Labs.
           </span>
           <div className="flex gap-5">
             <Link href="/privacy">Privacy Policy</Link>

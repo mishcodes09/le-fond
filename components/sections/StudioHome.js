@@ -1,7 +1,7 @@
 import { Icon } from "@/components/ui/Icon";
 import Link from "next/link";
 import { ContactButton } from "@/components/ui/ContactButton";
-import { Workflow, Dashboard } from "./Workflow";
+import { Workflow } from "./Workflow";
 import { CustomerCareCard } from "./CustomerCareCard";
 import { PriceCard } from "./GrowthPages";
 
@@ -114,7 +114,7 @@ function Callout() {
         <br />
         somewhere to go.
       </h2>
-      <p>Let’s connect your website, your follow-up and your team.</p>
+      <p>Let’s build a clear path from first click to qualified enquiry.</p>
       <ContactButton label="Book a Discovery Call" />
       <Link href="/contact" className="sf-small-link">
         Or tell us about your business <Icon name="arrowUpRight" />
@@ -128,7 +128,7 @@ export function StudioHome() {
       <section className="sf-hero sf-wide" id="hero">
         <div className="sf-hero-copy">
           <span className="sf-badge">
-            LEAD SYSTEMS FOR SOUTH AFRICAN BUSINESS
+            LEAD GENERATION & FUNNELS · SOUTH AFRICA
           </span>
           <h1>
             Turn enquiries
@@ -140,10 +140,13 @@ export function StudioHome() {
             moving.
           </h1>
           <p>
-            We build the websites, funnels and follow-up systems that move
-            service businesses from customer interest to the next conversation.
+            We build lead generation campaigns and sales funnels that turn
+            interest into qualified enquiries, bookings and quotes.
           </p>
           <ContactButton label="Build My Lead System" />
+          <div className="sf-client-note">
+            We work with a small number of clients at a time.
+          </div>
           <div className="sf-checks">
             <span>
               <Icon name="check" /> Connected follow-up
@@ -325,135 +328,16 @@ export function StudioHome() {
         </div>
       </section>
 
-      <section className="sf-section" id="examples">
-        <div className="sf-container">
-          <SectionTitle small="See what the system can look like.">
-            Different businesses.
-            <br />
-            Thoughtfully connected journeys.
-          </SectionTitle>
-          <div className="sf-showcases">
-            <article>
-              <a
-                className="sf-showcase-visual solar-scene"
-                href="#system"
-                aria-label="Explore the solar quote example"
-              >
-                <MiniSite />
-                <span className="sf-floating-label">
-                  Enquiry <Icon name="arrowRight" /> Site visit{" "}
-                  <Icon name="arrowRight" /> Quote
-                </span>
-              </a>
-              <span className="sf-caption">01 / EXAMPLE WORKFLOW</span>
-              <h3>A solar enquiry with a clear route to a qualified quote.</h3>
-              <p>
-                Capture property details, arrange the next conversation and keep
-                quote follow-up visible.
-              </p>
-              <a className="sf-small-link" href="#system">
-                Explore the lead system <Icon name="arrowUpRight" />
-              </a>
-            </article>
-            <article>
-              <a
-                className="sf-showcase-visual dental-scene"
-                href="#system"
-                aria-label="Explore the appointment example"
-              >
-                <MiniSite type="dental" />
-                <span className="sf-floating-label">
-                  Enquiry <Icon name="arrowRight" /> Appointment{" "}
-                  <Icon name="arrowRight" /> Reminder
-                </span>
-              </a>
-              <span className="sf-caption">02 / EXAMPLE WORKFLOW</span>
-              <h3>
-                Appointment requests that keep the reception team in control.
-              </h3>
-              <p>
-                Gather booking details, offer approved next steps and route
-                sensitive questions to a person.
-              </p>
-              <a className="sf-small-link" href="#system">
-                Explore the appointment flow <Icon name="arrowUpRight" />
-              </a>
-            </article>
-            <article>
-              <div className="sf-showcase-visual pipeline-scene">
-                <div className="showcase-command">
-                  <small>LE FOND / COMMAND CENTRE</small>
-                  <h4>
-                    A clearer view
-                    <br />
-                    of what’s next.
-                  </h4>
-                  <div>
-                    <span>Enquiry</span>
-                    <span>Next action</span>
-                  </div>
-                  <div>
-                    <b>Solar installation</b>
-                    <span>
-                      Arrange site visit <Icon name="arrowUpRight" />
-                    </span>
-                  </div>
-                  <div>
-                    <b>Consultation request</b>
-                    <span>
-                      Team review <Icon name="arrowUpRight" />
-                    </span>
-                  </div>
-                  <p>Optional dashboard concept · Example data</p>
-                </div>
-              </div>
-              <span className="sf-caption">03 / OPTIONAL CAPABILITY</span>
-              <h3>
-                Customer context, conversations and approvals in one view.
-              </h3>
-              <p>
-                A custom dashboard can give your team visibility. Scoped
-                separately when your workflow needs it.
-              </p>
-              <a className="sf-small-link" href="#dashboard">
-                Try the dashboard example <Icon name="arrowUpRight" />
-              </a>
-            </article>
-            <article>
-              <Link
-                className="sf-showcase-visual commerce-scene"
-                href="/commerce"
-                aria-label="Explore Commerce Growth"
-              >
-                <MiniSite type="commerce" />
-                <span className="sf-floating-label">
-                  Checkout <Icon name="arrowRight" /> Follow-up{" "}
-                  <Icon name="arrowRight" /> Return
-                </span>
-              </Link>
-              <span className="sf-caption">04 / COMMERCE GROWTH</span>
-              <h3>A store experience that follows through after the click.</h3>
-              <p>
-                Shopify and WooCommerce improvements, cart recovery and customer
-                lifecycle automation.
-              </p>
-              <Link className="sf-small-link" href="/commerce">
-                Explore Commerce Growth <Icon name="arrowUpRight" />
-              </Link>
-            </article>
-          </div>
-        </div>
-      </section>
       <div className="sf-container">
         <Callout />
       </div>
 
       <section className="sf-section" id="system">
         <div className="sf-container">
-          <SectionTitle small="Follow one enquiry through the system.">
-            Capture. Qualify. Book.
+          <SectionTitle small="Choose your industry. Try the funnel.">
+            From first click
             <br />
-            Keep the conversation moving.
+            to next step.
           </SectionTitle>
           <Workflow />
         </div>
@@ -463,23 +347,6 @@ export function StudioHome() {
           <CustomerCareCard />
         </div>
       </section>
-      <section className="sf-section" id="dashboard">
-        <span id="results" />
-        <span id="case-study" />
-        <div className="sf-container">
-          <SectionTitle small="An optional command centre.">
-            Your customer pipeline.
-            <br />
-            In view.
-          </SectionTitle>
-          <p className="sf-centred-copy">
-            A custom dashboard is a premium add-on, scoped separately. Explore
-            this example of pipeline visibility, approvals and reporting.
-          </p>
-          <Dashboard />
-        </div>
-      </section>
-
       <section className="sf-section" id="how-it-works">
         <div className="sf-container">
           <SectionTitle small="How we work.">
@@ -528,13 +395,9 @@ export function StudioHome() {
           <p className="pricing-note">
             Indicative pricing, based on agreed scope. Software licences,
             messaging usage and advertising spend may be additional. Applicable
-            VAT is confirmed in the proposal. Custom dashboards are separately
-            scoped. No lead volume or revenue is guaranteed.
+            VAT is confirmed in the proposal. No lead volume or revenue is
+            guaranteed.
           </p>
-          <Link href="/commerce#investment" className="sf-small-link">
-            Commerce Growth: R45,000–R90,000 setup + R8,000–R18,000 / month{" "}
-            <Icon name="arrowUpRight" />
-          </Link>
         </div>
       </section>
       <section className="sf-section" id="industries">
@@ -594,7 +457,7 @@ export function StudioHome() {
               ],
               [
                 "How do we get started?",
-                "Book a 30-minute discovery call through Calendly, or contact us on WhatsApp or email to discuss your lead system or request an audit.",
+                "Book a 15-minute discovery call through Cal.com, or contact us on WhatsApp or email to discuss your lead system or request an audit.",
               ],
             ].map(([q, a]) => (
               <details key={q}>

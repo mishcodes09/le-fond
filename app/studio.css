@@ -8,9 +8,9 @@
   --muted: #686868;
   --faint: #777;
   --line: #e5e5e5;
-  --accent: #d5fc2e;
-  --accent-ink: #191919;
-  --accent-soft: #f4fbdc;
+  --accent: #2563eb;
+  --accent-ink: #ffffff;
+  --accent-soft: #edf3ff;
   --logo-filter: none;
   color-scheme: light;
 }
@@ -22,9 +22,9 @@
   --muted: #aaa;
   --faint: #888;
   --line: #363636;
-  --accent: #d5fc2e;
-  --accent-ink: #191919;
-  --accent-soft: #293019;
+  --accent: #2563eb;
+  --accent-ink: #ffffff;
+  --accent-soft: #192641;
   --logo-filter: invert(1);
   color-scheme: dark;
 }
@@ -117,7 +117,7 @@
   display: inline-block;
   border-radius: 50px;
   background: var(--accent);
-  color: #191919;
+  color: var(--accent-ink);
   padding: 10px 17px;
   font-size: 11px;
   letter-spacing: 0.05em;
@@ -139,6 +139,12 @@
 .sf-hero-copy > .button {
   min-width: 300px;
   justify-content: space-between;
+}
+.sf-client-note {
+  margin-top: 14px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--muted);
 }
 .sf-checks {
   display: flex;
@@ -173,7 +179,7 @@
 }
 .mini-site {
   background: #fff;
-  color: #15323c;
+  color: #18335f;
   border-radius: 7px;
   overflow: hidden;
   box-shadow: 0 12px 35px #00000012;
@@ -209,7 +215,7 @@
 }
 .mini-art {
   height: 130px;
-  background: #d7e7e4;
+  background: #dce7fa;
   border-radius: 50% 50% 4px 4px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -219,14 +225,14 @@
   margin: 22px 10px;
 }
 .mini-art i {
-  background: linear-gradient(135deg, #204857, #427588);
-  border: 1px solid #6d949d;
+  background: linear-gradient(135deg, #244577, #5279b0);
+  border: 1px solid #7c9bc5;
   border-radius: 2px;
 }
 .mini-cta {
   display: inline-block;
   font-size: 8px;
-  background: #183b46;
+  background: #234477;
   color: #fff;
   padding: 10px 15px;
   border-radius: 25px;
@@ -309,13 +315,13 @@
   margin-left: auto;
   font-size: 7px;
   font-weight: 400;
-  color: #d5fc2e;
+  color: #7ca7ff;
 }
 .collage-pipeline i {
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: #d5fc2e;
+  background: #2563eb;
 }
 .collage-caption {
   position: absolute;
@@ -452,8 +458,8 @@
   line-height: 1.8;
 }
 .benefit-booking > div span:first-child {
-  background: #d5fc2e;
-  color: #191919;
+  background: #2563eb;
+  color: var(--accent-ink);
 }
 .benefit-booking p {
   font-size: 9px;
@@ -550,7 +556,7 @@
   transform: translateY(-5px);
 }
 .solar-scene {
-  background: #dcebea;
+  background: #dce7fa;
 }
 .dental-scene {
   background: #dfe8fa;
@@ -696,7 +702,7 @@
 }
 .sf-home .flow-step[aria-pressed="true"] {
   background: var(--accent);
-  color: #191919;
+  color: var(--accent-ink);
 }
 .sf-process {
   display: grid;
@@ -739,7 +745,7 @@
 }
 .sf-home .price-label .tag {
   background: var(--accent);
-  color: #191919;
+  color: var(--accent-ink);
   border: 0;
   border-radius: 20px;
 }
@@ -1335,4 +1341,93 @@
 .care-merge > .lf-icon {
   width: 24px;
   height: 24px;
+}
+.funnel-progress {
+  height: 3px;
+  background: var(--line);
+}
+.funnel-progress span {
+  display: block;
+  height: 100%;
+  background: var(--ink);
+  transition: width 0.3s ease;
+}
+.funnel-scene {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 48px;
+  padding: 40px;
+  min-height: 360px;
+  align-items: center;
+}
+.funnel-context h3 {
+  font-size: clamp(30px, 3.5vw, 46px);
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+  margin: 18px 0 24px;
+}
+.funnel-status {
+  font-size: 13px;
+  color: var(--muted);
+}
+.funnel-conversation {
+  padding: 26px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--panel);
+}
+.funnel-message {
+  font-size: 21px;
+  line-height: 1.4;
+  margin: 18px 0;
+}
+.funnel-detail {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.funnel-action {
+  margin-top: 24px;
+  width: 100%;
+  justify-content: space-between;
+  font-size: 13px;
+  padding: 16px;
+}
+.funnel-response {
+  margin-top: 16px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--bg);
+  font-size: 13px;
+  text-align: left;
+}
+.funnel-demo .slot-list button[aria-pressed="true"] {
+  background: var(--accent);
+  color: var(--accent-ink);
+  border-color: var(--accent);
+}
+@media (max-width: 700px) {
+  .funnel-scene {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 24px;
+    min-height: 490px;
+    align-content: start;
+  }
+  .funnel-context h3 {
+    font-size: 30px;
+    margin: 10px 0 12px;
+  }
+  .funnel-conversation {
+    padding: 20px;
+  }
+  .funnel-message {
+    font-size: 18px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .funnel-progress span {
+    transition: none;
+  }
 }
