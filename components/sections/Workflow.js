@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 const industries = {
   Solar: {
@@ -48,6 +48,46 @@ const stages = [
   "Handoff",
   "Measure",
 ];
+// Run demonstrations only while visible; manual interaction pauses the tour.
+function useDemoClock(onTick, delay = 4500) {
+  const ref = useRef(null);
+  const tick = useRef(onTick);
+  tick.current = onTick;
+  const reduced = useReducedMotion();
+  const [paused, setPaused] = useState(false);
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => setVisible(entry.isIntersecting),
+      { threshold: 0.15 },
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+  const playing = visible && !paused && !reduced;
+  useEffect(() => {
+    if (!playing) return;
+    const timer = setInterval(() => {
+      if (!document.hidden) tick.current();
+    }, delay);
+    return () => clearInterval(timer);
+  }, [playing, delay]);
+  return { ref, playing, paused, setPaused, reduced };
+}
+function DemoToggle({ demo, name }) {
+  if (demo.reduced)
+    return <span className="demo-caption">Select a step to explore</span>;
+  return (
+    <button
+      className="demo-toggle"
+      onClick={() => demo.setPaused(!demo.paused)}
+      aria-label={`${demo.paused ? "Resume" : "Pause"} ${name}`}
+    >
+      <span aria-hidden="true">{demo.paused ? "▶" : "Ⅱ"}</span>
+      <span>{demo.paused ? "Resume tour" : "Pause tour"}</span>
+    </button>
+  );
+}
 export function HeroLead() {
   return (
     <div className="lead-preview">
@@ -86,25 +126,15 @@ export function HeroLead() {
 export function Workflow() {
   const [sector, setSector] = useState("Solar");
   const [active, setActive] = useState(0);
-  const [playing, setPlaying] = useState(false);
   const [slot, setSlot] = useState("");
   const reduced = useReducedMotion();
   const data = industries[sector];
-  useEffect(() => {
-    if (!playing) return;
-    const timer = setTimeout(() => {
-      if (document.hidden) {
-        setPlaying(false);
-        return;
-      }
-      if (active >= 5) {
-        setPlaying(false);
-        return;
-      }
-      setActive((x) => x + 1);
-    }, 3000);
-    return () => clearTimeout(timer);
-  }, [playing, active]);
+  const demo = useDemoClock(() => {
+    setActive((x) => (x + 1) % stages.length);
+    if (active === 5) setSlot("");
+  }, 6000);
+  const playing = demo.playing;
+  const setPlaying = (value) => demo.setPaused(!value);
   const content = [
     {
       title: "The enquiry has somewhere to go.",
@@ -193,7 +223,7 @@ export function Workflow() {
     setActive(i);
   }
   return (
-    <div className="workflow-box">
+    <div className="workflow-box" ref={demo.ref}>
       <div className="workflow-toolbar">
         <div>
           <span className="kicker">Example workflow</span>
@@ -201,6 +231,7 @@ export function Workflow() {
             Choose a business. Follow one enquiry.
           </p>
         </div>
+        <DemoToggle demo={demo} name="workflow tour" />
         <div role="group" aria-label="Example industry" className="segmented">
           {Object.keys(industries).map((s) => (
             <button
@@ -210,7 +241,7 @@ export function Workflow() {
                 setSector(s);
                 setActive(0);
                 setSlot("");
-                setPlaying(false);
+                setPlaying(true);
               }}
             >
               {s}
@@ -293,32 +324,6 @@ export function Workflow() {
         <span className="kicker">
           Illustration only · Nothing sent or booked
         </span>
-        <div className="control-group">
-          <button
-            onClick={() => chooseStage(Math.max(0, active - 1))}
-            disabled={active === 0}
-          >
-            ← Back
-          </button>
-          <button
-            onClick={() => {
-              if (active === 5) setActive(0);
-              setPlaying(!playing);
-            }}
-          >
-            {playing
-              ? "Pause example"
-              : active === 5
-                ? "Replay example"
-                : "Play example"}
-          </button>
-          <button
-            onClick={() => chooseStage(Math.min(5, active + 1))}
-            disabled={active === 5}
-          >
-            Next →
-          </button>
-        </div>
       </div>
     </div>
   );
@@ -370,14 +375,51 @@ export function AIAssistant() {
 export function Dashboard() {
   const [tab, setTab] = useState("Pipeline");
   const [action, setAction] = useState("Pending review");
+  const [frame, setFrame] = useState(0);
+  const demo = useDemoClock(() => {
+    const next = (frame + 1) % 6;
+    setFrame(next);
+    setTab(
+      [
+        "Pipeline",
+        "Pipeline",
+        "Approvals",
+        "Approvals",
+        "Reporting",
+        "Reporting",
+      ][next],
+    );
+    setAction(
+      next === 3
+        ? "Example approval recorded. Nothing was sent."
+        : "Pending review",
+    );
+  });
+  const captions = [
+    "01 / A new enquiry arrives",
+    "02 / Qualification details reach your team",
+    "03 / A follow-up awaits approval",
+    "04 / Your team controls the next action",
+    "05 / Progress appears in reporting",
+    "06 / Every enquiry has a next step",
+  ];
   return (
-    <div className="dashboard">
+    <div className="dashboard" ref={demo.ref}>
       <div className="dash-top">
         <div>
           <span className="kicker">Le Fond / command centre</span>
           <p className="text-sm mt-2">Your customer pipeline, in view.</p>
         </div>
         <span className="tag">Add-on concept · Example data</span>
+      </div>
+      <div className="demo-player">
+        <span className="demo-caption">{captions[frame]}</span>
+        <DemoToggle demo={demo} name="dashboard tour" />
+      </div>
+      <div className="demo-progress" aria-hidden="true">
+        {captions.map((_, i) => (
+          <span key={i} className={i <= frame ? "is-complete" : ""} />
+        ))}
       </div>
       <div className="dash-content">
         <div
@@ -386,12 +428,28 @@ export function Dashboard() {
           aria-label="Dashboard example views"
         >
           {["Pipeline", "Approvals", "Reporting"].map((t) => (
-            <button key={t} onClick={() => setTab(t)} aria-pressed={tab === t}>
+            <button
+              key={t}
+              onClick={() => {
+                setTab(t);
+                setFrame(["Pipeline", "Approvals", "Reporting"].indexOf(t) * 2);
+                demo.setPaused(true);
+              }}
+              aria-pressed={tab === t}
+            >
               {t}
             </button>
           ))}
         </div>
-        <div className="dash-main" aria-live="polite">
+        <motion.div
+          key={tab}
+          initial={{ opacity: demo.reduced ? 1 : 0, y: demo.reduced ? 0 : 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.35 }}
+          className="dash-main"
+          aria-live={demo.playing ? "off" : "polite"}
+          onClick={() => demo.setPaused(true)}
+        >
           {tab === "Pipeline" ? (
             <>
               <div className="pipeline-row head">
@@ -405,12 +463,18 @@ export function Dashboard() {
                   <br />
                   <small className="muted">Example customer</small>
                 </span>
-                <span>Qualified</span>
-                <span>Arrange site visit</span>
+                <span className="demo-status">
+                  {frame === 0 ? "New enquiry" : "Qualified"}
+                </span>
+                <span>
+                  {frame === 0 ? "Gather requirements" : "Arrange site visit"}
+                </span>
               </div>
               <div className="pipeline-row">
                 <span>Conversation summary</span>
-                <span>Ready for review</span>
+                <span>
+                  {frame === 0 ? "Capturing details" : "Ready for review"}
+                </span>
                 <span>Open customer context</span>
               </div>
               <p className="dash-notice">
@@ -477,7 +541,7 @@ export function Dashboard() {
               ))}
             </div>
           )}
-        </div>
+        </motion.div>
       </div>
     </div>
   );

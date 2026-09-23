@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ContactButton } from "@/components/ui/ContactButton";
-import { Workflow, AIAssistant, Dashboard } from "./Workflow";
+import { Workflow, Dashboard } from "./Workflow";
+import { CustomerCareCard } from "./CustomerCareCard";
 import { PriceCard } from "./GrowthPages";
 
 function MiniSite({ type = "solar" }) {
@@ -122,7 +123,6 @@ export function StudioHome() {
   return (
     <div className="sf-home">
       <section className="sf-hero sf-wide" id="hero">
-        <Collage />
         <div className="sf-hero-copy">
           <span className="sf-badge">
             LEAD SYSTEMS FOR SOUTH AFRICAN BUSINESS
@@ -147,6 +147,7 @@ export function StudioHome() {
             <span>✓ Clear next steps</span>
           </div>
         </div>
+        <Collage />
       </section>
       <div
         className="sf-sector-strip sf-wide"
@@ -426,26 +427,8 @@ export function StudioHome() {
         </div>
       </section>
       <section className="sf-section" id="ai">
-        <div className="sf-container sf-human">
-          <div>
-            <p className="sf-eyebrow">AUTOMATION WITH CLEAR BOUNDARIES</p>
-            <h2>
-              AI where it helps.
-              <br />
-              Humans where
-              <br />
-              it matters.
-            </h2>
-            <p>
-              Answer common questions, capture information and arrange the next
-              step. When a conversation needs judgement, the business takes over
-              with context.
-            </p>
-            <p>
-              Important decisions and sensitive questions stay with your team.
-            </p>
-          </div>
-          <AIAssistant />
+        <div className="sf-container">
+          <CustomerCareCard />
         </div>
       </section>
       <section className="sf-section" id="dashboard">

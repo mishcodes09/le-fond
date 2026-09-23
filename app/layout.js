@@ -1,6 +1,7 @@
 import { DM_Sans, DM_Mono } from "next/font/google";
 import "./globals.css";
 import "./studio.css";
+import "./system-cards.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 const sans = DM_Sans({

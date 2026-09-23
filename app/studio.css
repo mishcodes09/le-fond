@@ -1186,3 +1186,136 @@
     transition: none;
   }
 }
+
+/* Service cards form a readable, overlapping stack as the page scrolls. */
+.sf-benefits {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+  padding-bottom: 40px;
+  isolation: isolate;
+}
+.sf-benefits article {
+  position: sticky;
+  top: 24px;
+  background: var(--bg);
+  box-shadow: 0 -12px 35px #00000008;
+}
+.sf-benefits article:nth-child(2) {
+  top: 48px;
+}
+.sf-benefits article:nth-child(3) {
+  top: 72px;
+}
+@media (min-width: 601px) {
+  .sf-benefits article {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 8%;
+    padding: clamp(30px, 4vw, 60px);
+    min-height: 370px;
+  }
+  .sf-benefits .sf-card-number,
+  .sf-benefits h3,
+  .sf-benefits article > p,
+  .sf-benefits article > a {
+    grid-column: 1;
+  }
+  .sf-benefits .benefit-form,
+  .sf-benefits .benefit-booking,
+  .sf-benefits .benefit-messages {
+    grid-column: 2;
+    grid-row: 1 / 5;
+    align-self: center;
+    margin: 0;
+    font-size: 15px;
+  }
+  .sf-benefits h3 {
+    font-size: clamp(28px, 3.3vw, 46px);
+  }
+}
+@media (max-width: 600px) {
+  .sf-benefits {
+    gap: 36px;
+  }
+  .sf-benefits article {
+    display: flex;
+    padding: 24px;
+    top: min(16px, calc(100svh - 620px));
+  }
+  .sf-benefits article:nth-child(2) {
+    top: min(32px, calc(100svh - 600px));
+  }
+  .sf-benefits article:nth-child(3) {
+    top: min(48px, calc(100svh - 580px));
+  }
+  .sf-benefits .benefit-form,
+  .sf-benefits .benefit-booking,
+  .sf-benefits .benefit-messages {
+    width: 100%;
+    margin-top: 22px;
+  }
+}
+.demo-player {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 0;
+}
+.demo-caption {
+  font-size: 12px;
+  color: var(--muted);
+}
+.demo-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--line);
+  border-radius: 30px;
+  padding: 10px 14px;
+  white-space: nowrap;
+  font-size: 12px;
+  background: var(--bg);
+}
+.demo-toggle:hover {
+  background: var(--panel-2);
+}
+.demo-progress {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 12px;
+}
+.demo-progress span {
+  height: 3px;
+  flex: 1;
+  background: var(--line);
+  transition: background 0.4s;
+}
+.demo-progress .is-complete {
+  background: var(--ink);
+}
+.dashboard .dash-main {
+  min-height: 320px;
+}
+.demo-status {
+  color: var(--ink);
+  font-weight: 600;
+}
+@media (max-width: 600px) {
+  .dashboard .dash-main {
+    min-height: 370px;
+  }
+  .demo-player {
+    align-items: flex-start;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sf-benefits article {
+    position: relative;
+    top: auto !important;
+  }
+  .demo-progress span {
+    transition: none;
+  }
+}

@@ -11,7 +11,7 @@ The approved strategic direction is implemented in the existing Next.js 14 appli
 - The homepage leads with “Turn enquiries into bookings. Keep quotes moving.” Original HTML/CSS concept visuals demonstrate landing pages, booking, pipeline visibility and commerce. They are labelled examples, not client work or results.
 - `StudioHome.js` is the active homepage and `app/studio.css` supplies the reference-led styling. Existing interactive system components and the inner-page components are reused.
 - The interactive six-stage workflow adapts to solar, dental, plumbing and B2B examples. It includes local example booking choices, finite playback, reduced-motion support and explicit example labels.
-- AI examples show routine replies and human escalation. The optional dashboard concept includes pipeline, approvals and reporting views, with simulated actions only.
+- Customer care uses a static, responsive system card with both routine assistance and human escalation visible together, followed by human confirmation. `CustomerCareCard.js` and `app/system-cards.css` implement the card using accessible text and decorative vector diagrams. The optional dashboard concept includes pipeline, approvals and reporting views, with simulated actions only.
 - Booking, audit, WhatsApp and email open accessible placeholder dialogs. These destinations are configured centrally in `lib/contact.js`.
 - The enquiry form validates required fields locally and explicitly reports that nothing was sent. It does not persist input.
 - The enquiry demonstration uses fictional workflow states labelled Example; no client results are claimed.
@@ -32,3 +32,10 @@ Run `npm ci`, then `npm run dev -- --port 4317`. Production validation uses `npm
 7. Verify booking completion, WhatsApp destination, form delivery and production analytics end to end.
 
 Original section components remain in source for reference but are no longer imported by the active routes. `GrowthPages.js`, `Workflow.js` and the shared contact components provide the new pages. Existing `#results` and `#case-study` anchors resolve to the labelled dashboard concept. No GitHub push or live deployment is included in this local preview.
+# Latest interaction updates
+
+- Hero copy is on the left and the system artwork is on the right; phones retain copy first.
+- Capture, Convert and Follow Through cards stack on scroll, with a normal-flow fallback for reduced motion.
+- The lead workflow loops automatically while visible. The former Back / Play / Next row is removed; stage selection and a compact pause control remain.
+- The command centre runs a six-scene example tour through enquiry capture, qualification, approval and reporting. Selecting a tab or taking an example action pauses playback. Nothing is sent externally.
+- Both tours stop advancing offscreen and respect reduced-motion preferences.
