@@ -1,4 +1,5 @@
 "use client";
+import { Icon, IconText } from "@/components/ui/Icon";
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 const industries = {
@@ -83,7 +84,7 @@ function DemoToggle({ demo, name }) {
       onClick={() => demo.setPaused(!demo.paused)}
       aria-label={`${demo.paused ? "Resume" : "Pause"} ${name}`}
     >
-      <span aria-hidden="true">{demo.paused ? "▶" : "Ⅱ"}</span>
+      <Icon name={demo.paused ? "play" : "pause"} />
       <span>{demo.paused ? "Resume tour" : "Pause tour"}</span>
     </button>
   );
@@ -106,14 +107,14 @@ export function HeroLead() {
       <div className="preview-connector" aria-hidden="true" />
       <div className="lead-ticket">
         <div className="ticket-avatar" aria-hidden="true">
-          ↗
+          <Icon name="arrowUpRight" />
         </div>
         <div>
           <p>Qualified enquiry</p>
           <small>Captured. Assigned. Ready for follow-up.</small>
         </div>
         <span className="ticket-check" aria-hidden="true">
-          ✓
+          <Icon name="check" />
         </span>
       </div>
       <div className="panel-footer">
@@ -250,8 +251,8 @@ export function Workflow() {
         </div>
       </div>
       <div className="flow-upstream">
-        Traffic <span aria-hidden="true">→</span> Landing page / website{" "}
-        <span aria-hidden="true">→</span> Your connected lead system
+        Traffic <Icon name="arrowRight" /> Landing page / website{" "}
+        <Icon name="arrowRight" /> Your connected lead system
       </div>
       <div role="group" aria-label="Lead flow stages" className="flow-steps">
         {stages.map((s, i) => (
@@ -262,7 +263,7 @@ export function Workflow() {
             onClick={() => chooseStage(i)}
           >
             <small>
-              0{i + 1} {active > i ? "✓" : ""}
+              0{i + 1} {active > i ? <Icon name="check" /> : null}
             </small>
             {s}
           </button>
@@ -304,7 +305,9 @@ export function Workflow() {
               )}
             </div>
             <div className="flow-record">
-              <span className="kicker">{content.speaker}</span>
+              <span className="kicker">
+                <IconText>{content.speaker}</IconText>
+              </span>
               <p className="text-sm leading-relaxed mt-4">
                 “{content.message}”
               </p>
@@ -312,7 +315,9 @@ export function Workflow() {
                 {content.rows.map(([k, v]) => (
                   <div className="data-row" key={k}>
                     <dt>{k}</dt>
-                    <dd>{v}</dd>
+                    <dd>
+                      <IconText>{v}</IconText>
+                    </dd>
                   </div>
                 ))}
               </dl>
@@ -364,9 +369,10 @@ export function AIAssistant() {
             : "“I can help with the request. What kind of consultation do you need, and which time usually suits you?”"}
         </div>
         <div className="ai-status">
+          <Icon name="arrowRight" />
           {human
-            ? "→ Human review requested. Context travels with the conversation."
-            : "→ Capture the request. Check approved availability. Let the team confirm."}
+            ? "Human review requested. Context travels with the conversation."
+            : "Capture the request. Check approved availability. Let the team confirm."}
         </div>
       </div>
     </div>

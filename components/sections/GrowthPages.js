@@ -1,3 +1,4 @@
+import { Icon } from "@/components/ui/Icon";
 import Link from "next/link";
 import { ContactButton } from "@/components/ui/ContactButton";
 import { EnquiryForm } from "@/components/ui/EnquiryForm";
@@ -451,7 +452,7 @@ export function HomePage() {
                 <p>{d}</p>
                 <div className="industry-path">
                   <span>{a}</span>
-                  <span aria-hidden="true">→</span>
+                  <Icon name="arrowRight" />
                   <span>{b}</span>
                 </div>
               </article>
@@ -549,7 +550,7 @@ export function HomePage() {
           </div>
           <PricingNote />
           <Link className="text-link mt-5" href="/commerce#investment">
-            See Commerce Growth pricing <span aria-hidden="true">↗</span>
+            See Commerce Growth pricing <Icon name="arrowUpRight" />
           </Link>
         </div>
       </section>
@@ -569,7 +570,7 @@ export function HomePage() {
             </p>
             <div className="actions">
               <Link href="/commerce" className="button secondary">
-                Explore Commerce Growth <span aria-hidden="true">↗</span>
+                Explore Commerce Growth <Icon name="arrowUpRight" />
               </Link>
             </div>
           </div>
@@ -987,7 +988,7 @@ export function LegalPage({ type }) {
           )}
           <div className="actions">
             <Link href="/contact" className="button secondary">
-              Contact options <span aria-hidden="true">↗</span>
+              Contact options <Icon name="arrowUpRight" />
             </Link>
           </div>
         </div>

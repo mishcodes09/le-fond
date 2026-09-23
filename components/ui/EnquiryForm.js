@@ -1,4 +1,6 @@
 "use client";
+import { Icon } from "@/components/ui/Icon";
+
 import { useState } from "react";
 export function EnquiryForm() {
   const [reviewed, setReviewed] = useState(false);
@@ -36,7 +38,7 @@ export function EnquiryForm() {
         <textarea required name="problem" rows={4} maxLength={2000} />
       </label>
       <button className="button" type="submit">
-        Preview enquiry <span aria-hidden="true">↗</span>
+        Preview enquiry <Icon name="arrowUpRight" />
       </button>
       <p role="status">
         {reviewed

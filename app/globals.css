@@ -650,7 +650,13 @@
   padding: 12px 0;
 }
 .solution li::before {
-  content: "↗";
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+  background: currentColor;
+  mask: url("/icons/arrow-up-right.svg") center / contain no-repeat;
   margin-right: 12px;
   color: var(--muted);
 }
@@ -905,7 +911,13 @@
   gap: 12px;
 }
 .price-card li::before {
-  content: "✓";
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+  background: currentColor;
+  mask: url("/icons/check.svg") center / contain no-repeat;
   color: var(--accent);
 }
 .price-card .actions {
@@ -962,12 +974,24 @@
   font-size: 17px;
 }
 .faq summary::after {
-  content: "+";
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+  background: currentColor;
+  mask: url("/icons/plus.svg") center / contain no-repeat;
   font-size: 22px;
   color: var(--muted);
 }
 .faq details[open] summary::after {
-  content: "−";
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+  background: currentColor;
+  mask: url("/icons/minus.svg") center / contain no-repeat;
 }
 .faq details p {
   font-size: 15px;
@@ -1947,7 +1971,13 @@
   font-size: 13px;
 }
 .studio-principles span::before {
-  content: "●";
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+  background: currentColor;
+  mask: url("/icons/dot.svg") center / contain no-repeat;
   color: #b9baff;
   margin-right: 12px;
 }

@@ -1,3 +1,4 @@
+import { Icon } from "@/components/ui/Icon";
 import Link from "next/link";
 import { ContactButton } from "@/components/ui/ContactButton";
 import { Workflow, Dashboard } from "./Workflow";
@@ -10,7 +11,9 @@ function MiniSite({ type = "solar" }) {
     <div className={`mini-site mini-${type}`} aria-hidden="true">
       <div className="mini-nav">
         <b>LE FOND</b>
-        <span>Example system ↗</span>
+        <span>
+          Example system <Icon name="arrowUpRight" />
+        </span>
       </div>
       <div className="mini-page">
         <span className="mini-label">
@@ -51,7 +54,7 @@ function MiniSite({ type = "solar" }) {
             : type === "dental"
               ? "Request an appointment"
               : "Request a solar quote"}{" "}
-          ↗
+          <Icon name="arrowUpRight" />
         </span>
         <div className="mini-columns">
           <span>Clear information</span>
@@ -114,7 +117,7 @@ function Callout() {
       <p>Let’s connect your website, your follow-up and your team.</p>
       <ContactButton label="Book a Discovery Call" />
       <Link href="/contact" className="sf-small-link">
-        Or tell us about your business ↗
+        Or tell us about your business <Icon name="arrowUpRight" />
       </Link>
     </div>
   );
@@ -142,9 +145,15 @@ export function StudioHome() {
           </p>
           <ContactButton label="Build My Lead System" />
           <div className="sf-checks">
-            <span>✓ Connected follow-up</span>
-            <span>✓ Humans in control</span>
-            <span>✓ Clear next steps</span>
+            <span>
+              <Icon name="check" /> Connected follow-up
+            </span>
+            <span>
+              <Icon name="check" /> Humans in control
+            </span>
+            <span>
+              <Icon name="check" /> Clear next steps
+            </span>
           </div>
         </div>
         <Collage />
@@ -182,14 +191,24 @@ export function StudioHome() {
               <div className="benefit-form" aria-hidden="true">
                 <span>What can we help with?</span>
                 <div>
-                  Solar installation <b>⌄</b>
+                  Solar installation{" "}
+                  <b>
+                    <Icon name="chevronDown" />
+                  </b>
                 </div>
                 <div>
-                  Your contact details <b>↗</b>
+                  Your contact details{" "}
+                  <b>
+                    <Icon name="arrowUpRight" />
+                  </b>
                 </div>
-                <strong>Enquiry captured ✓</strong>
+                <strong>
+                  Enquiry captured <Icon name="check" />
+                </strong>
               </div>
-              <a href="#system">See the journey ↗</a>
+              <a href="#system">
+                See the journey <Icon name="arrowUpRight" />
+              </a>
             </article>
             <article className="sf-benefit-dark">
               <span className="sf-card-number">02 / CONVERT</span>
@@ -219,7 +238,9 @@ export function StudioHome() {
                 </div>
                 <p>Example appointment options</p>
               </div>
-              <a href="#system">See the journey ↗</a>
+              <a href="#system">
+                See the journey <Icon name="arrowUpRight" />
+              </a>
             </article>
             <article>
               <span className="sf-card-number">03 / FOLLOW THROUGH</span>
@@ -235,9 +256,13 @@ export function StudioHome() {
               <div className="benefit-messages" aria-hidden="true">
                 <span>Thanks, your request is with the team.</span>
                 <span>Here’s a reminder about your appointment.</span>
-                <span>A person takes over when needed. ↗</span>
+                <span>
+                  A person takes over when needed. <Icon name="arrowUpRight" />
+                </span>
               </div>
-              <a href="#ai">See how handoff works ↗</a>
+              <a href="#ai">
+                See how handoff works <Icon name="arrowUpRight" />
+              </a>
             </article>
           </div>
           <p className="sf-caption">
@@ -316,7 +341,8 @@ export function StudioHome() {
               >
                 <MiniSite />
                 <span className="sf-floating-label">
-                  Enquiry → Site visit → Quote
+                  Enquiry <Icon name="arrowRight" /> Site visit{" "}
+                  <Icon name="arrowRight" /> Quote
                 </span>
               </a>
               <span className="sf-caption">01 / EXAMPLE WORKFLOW</span>
@@ -326,7 +352,7 @@ export function StudioHome() {
                 quote follow-up visible.
               </p>
               <a className="sf-small-link" href="#system">
-                Explore the lead system ↗
+                Explore the lead system <Icon name="arrowUpRight" />
               </a>
             </article>
             <article>
@@ -337,7 +363,8 @@ export function StudioHome() {
               >
                 <MiniSite type="dental" />
                 <span className="sf-floating-label">
-                  Enquiry → Appointment → Reminder
+                  Enquiry <Icon name="arrowRight" /> Appointment{" "}
+                  <Icon name="arrowRight" /> Reminder
                 </span>
               </a>
               <span className="sf-caption">02 / EXAMPLE WORKFLOW</span>
@@ -349,7 +376,7 @@ export function StudioHome() {
                 sensitive questions to a person.
               </p>
               <a className="sf-small-link" href="#system">
-                Explore the appointment flow ↗
+                Explore the appointment flow <Icon name="arrowUpRight" />
               </a>
             </article>
             <article>
@@ -367,11 +394,15 @@ export function StudioHome() {
                   </div>
                   <div>
                     <b>Solar installation</b>
-                    <span>Arrange site visit ↗</span>
+                    <span>
+                      Arrange site visit <Icon name="arrowUpRight" />
+                    </span>
                   </div>
                   <div>
                     <b>Consultation request</b>
-                    <span>Team review ↗</span>
+                    <span>
+                      Team review <Icon name="arrowUpRight" />
+                    </span>
                   </div>
                   <p>Optional dashboard concept · Example data</p>
                 </div>
@@ -385,7 +416,7 @@ export function StudioHome() {
                 separately when your workflow needs it.
               </p>
               <a className="sf-small-link" href="#dashboard">
-                Try the dashboard example ↗
+                Try the dashboard example <Icon name="arrowUpRight" />
               </a>
             </article>
             <article>
@@ -396,7 +427,8 @@ export function StudioHome() {
               >
                 <MiniSite type="commerce" />
                 <span className="sf-floating-label">
-                  Checkout → Follow-up → Return
+                  Checkout <Icon name="arrowRight" /> Follow-up{" "}
+                  <Icon name="arrowRight" /> Return
                 </span>
               </Link>
               <span className="sf-caption">04 / COMMERCE GROWTH</span>
@@ -406,7 +438,7 @@ export function StudioHome() {
                 lifecycle automation.
               </p>
               <Link className="sf-small-link" href="/commerce">
-                Explore Commerce Growth ↗
+                Explore Commerce Growth <Icon name="arrowUpRight" />
               </Link>
             </article>
           </div>
@@ -500,7 +532,8 @@ export function StudioHome() {
             scoped. No lead volume or revenue is guaranteed.
           </p>
           <Link href="/commerce#investment" className="sf-small-link">
-            Commerce Growth: R45,000–R90,000 setup + R8,000–R18,000 / month ↗
+            Commerce Growth: R45,000–R90,000 setup + R8,000–R18,000 / month{" "}
+            <Icon name="arrowUpRight" />
           </Link>
         </div>
       </section>
@@ -522,7 +555,9 @@ export function StudioHome() {
             ].map((t) => (
               <a key={t} href="#system">
                 {t}
-                <span>↗</span>
+                <span>
+                  <Icon name="arrowUpRight" />
+                </span>
               </a>
             ))}
           </div>

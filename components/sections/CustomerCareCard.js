@@ -1,3 +1,4 @@
+import { Icon } from "@/components/ui/Icon";
 function Person({ headset = false }) {
   return (
     <svg
@@ -120,7 +121,9 @@ export function CustomerCareCard() {
         <section className="care-path">
           <div className="care-path-label">
             <span className="kicker">Routine question</span>
-            <span aria-hidden="true">●</span>
+            <span aria-hidden="true">
+              <Icon name="dot" />
+            </span>
           </div>
           <div className="care-diagram">
             <RoutineDiagram />
@@ -136,7 +139,9 @@ export function CustomerCareCard() {
         <section className="care-path">
           <div className="care-path-label">
             <span className="kicker">Needs a person</span>
-            <span aria-hidden="true">○</span>
+            <span aria-hidden="true">
+              <Icon name="circle" />
+            </span>
           </div>
           <div className="care-diagram">
             <HandoffDiagram />
@@ -150,7 +155,7 @@ export function CustomerCareCard() {
         </section>
       </div>
       <div className="care-merge" aria-hidden="true">
-        <span>↓</span>
+        <Icon name="arrowDown" />
       </div>
       <div className="care-confirm">
         <div className="care-avatar">

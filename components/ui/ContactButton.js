@@ -1,4 +1,6 @@
 "use client";
+import { Icon } from "@/components/ui/Icon";
+
 import { useRef } from "react";
 import { contact } from "@/lib/contact";
 export function ContactButton({
@@ -31,7 +33,7 @@ export function ContactButton({
       {destination ? (
         <a href={destination} className={className}>
           {text}
-          {!plain && <span aria-hidden="true">↗</span>}
+          {!plain && <Icon name="arrowUpRight" />}
         </a>
       ) : (
         <button
@@ -40,7 +42,7 @@ export function ContactButton({
           onClick={() => dialog.current.showModal()}
         >
           {text}
-          {!plain && <span aria-hidden="true">↗</span>}
+          {!plain && <Icon name="arrowUpRight" />}
         </button>
       )}
       <dialog
@@ -70,7 +72,7 @@ export function ContactButton({
         </p>
         <form method="dialog">
           <button className="button">
-            Back to the website <span aria-hidden="true">↗</span>
+            Back to the website <Icon name="arrowUpRight" />
           </button>
         </form>
       </dialog>
