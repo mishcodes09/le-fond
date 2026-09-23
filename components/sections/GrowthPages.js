@@ -635,7 +635,7 @@ function FAQ() {
             ],
             [
               "Can I book through this preview?",
-              "Contact details are still placeholders. Booking, audit, WhatsApp and email buttons show what will happen once the real destinations are connected. The preview form sends and saves nothing.",
+              "Book a 30-minute discovery call through Calendly, or contact us on WhatsApp or email. The preview form sends and saves nothing.",
             ],
           ].map(([q, a]) => (
             <details key={q}>
@@ -904,13 +904,20 @@ export function ContactPage() {
               <ContactButton channel="audit" secondary />
             </div>
             <div className="actions">
-              <ContactButton channel="whatsapp" secondary />
-              <ContactButton channel="email" secondary />
+              <ContactButton
+                channel="whatsapp"
+                label="WhatsApp · 067 342 5533"
+                secondary
+              />
+              <ContactButton
+                channel="email"
+                label="contact@lefondstudio.co.za"
+                secondary
+              />
             </div>
             <p className="pricing-note">
-              South Africa · Contact destinations will be added after the
-              preview review. No call or message can be sent from these
-              placeholders.
+              South Africa · Book a 30-minute discovery call through Calendly,
+              or speak to us on WhatsApp or email.
             </p>
           </div>
           <EnquiryForm />
@@ -941,10 +948,11 @@ export function LegalPage({ type }) {
             <>
               <h2>Contact details and enquiries</h2>
               <p>
-                The booking, WhatsApp, email and audit options are placeholders.
-                The preview enquiry form does not submit or save the details
-                entered. Interactive workflow and dashboard demonstrations use
-                example information.
+                WhatsApp and email links open the relevant communication
+                service. Booking links open Calendly. The separate audit button
+                is currently a placeholder. The preview enquiry form does not
+                submit or save the details entered. Interactive workflow and
+                dashboard demonstrations use example information.
               </p>
               <h2>Theme preference</h2>
               <p>
@@ -967,8 +975,9 @@ export function LegalPage({ type }) {
               <h2>A preview, not a live service</h2>
               <p>
                 This website demonstrates the proposed Le Fond services and
-                design. Buttons and simulated workflows do not place orders,
-                book appointments, send communications or create an engagement.
+                design. Contact links open Calendly, WhatsApp or your email app.
+                Simulated workflows do not place orders, book appointments or
+                send communications.
               </p>
               <h2>Scope and indicative pricing</h2>
               <p>

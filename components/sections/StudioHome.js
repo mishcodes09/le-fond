@@ -594,7 +594,7 @@ export function StudioHome() {
               ],
               [
                 "How do we get started?",
-                "Start with a discovery call or system audit. Booking and contact destinations are placeholders during this review; they will be connected when the verified details are supplied.",
+                "Book a 30-minute discovery call through Calendly, or contact us on WhatsApp or email to discuss your lead system or request an audit.",
               ],
             ].map(([q, a]) => (
               <details key={q}>

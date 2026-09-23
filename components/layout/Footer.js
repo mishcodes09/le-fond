@@ -40,8 +40,16 @@ export function Footer() {
             <h3>Start a conversation</h3>
             <ContactButton plain label="Book a Discovery Call" />
             <ContactButton plain channel="audit" />
-            <ContactButton plain channel="whatsapp" />
-            <ContactButton plain channel="email" />
+            <ContactButton
+              plain
+              channel="whatsapp"
+              label="WhatsApp · 067 342 5533"
+            />
+            <ContactButton
+              plain
+              channel="email"
+              label="contact@lefondstudio.co.za"
+            />
           </nav>
         </div>
         <div className="footer-bottom">
