@@ -986,10 +986,7 @@ export function LegalPage({ type }) {
               <h2>Contact details and enquiries</h2>
               <p>
                 WhatsApp and email links open the relevant communication
-                service. Booking links open Cal.com. The separate audit button
-                is currently a placeholder. The preview enquiry form does not
-                submit or save the details entered. The interactive funnel
-                demonstration uses example information.
+                service. Booking links open Cal.com. Audit requests open a prefilled WhatsApp draft. The enquiry form passes the details you enter to WhatsApp for you to review and send; this website does not store the enquiry. The interactive funnel uses example information.
               </p>
               <h2>Theme preference</h2>
               <p>
