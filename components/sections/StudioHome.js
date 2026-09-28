@@ -390,8 +390,8 @@ export function StudioHome() {
             Build what your business needs.
           </SectionTitle>
           <p className="pricing-intro">
-            Get a clearer path from first enquiry to next step. Start with the
-            essentials and add more when you need it.
+            Start from R5,500 once-off, with 50% upfront and 50% at launch.
+            Get the essentials in place and add more as your business grows.
           </p>
           <p className="pricing-intro">
             Capture and manage enquiries with the first two packages. Add paid

@@ -50,9 +50,10 @@ const pricing = {
   capture: {
     name: "Enquiry Essentials",
     label: "Give every enquiry a clear way in.",
-    setup: "From R7,500 once-off",
+    setup: "From R5,500 once-off",
+    payment: "From R2,750 upfront + R2,750 at launch.",
     description:
-      "For businesses that need a focused page and an organised place to manage enquiries.",
+      "For small businesses getting started with one focused page and a simple place to manage enquiries.",
     items: [
       "One landing page for one service or offer",
       "Enquiry form and WhatsApp contact button",
@@ -67,7 +68,8 @@ const pricing = {
   engine: {
     name: "Booking & Follow-Up",
     label: "Make it easier to book. Make follow-up consistent.",
-    setup: "From R12,500 once-off",
+    setup: "From R9,500 once-off",
+    payment: "From R4,750 upfront + R4,750 at launch.",
     description:
       "For businesses receiving enquiries but losing time and opportunities between first contact, appointments and quotes.",
     includes: "Everything in Enquiry Essentials, plus:",
@@ -86,6 +88,7 @@ const pricing = {
     name: "Lead Generation & Growth",
     label: "Bring in enquiries. Give each one a next step.",
     setup: "From R15,000 setup",
+    payment: "From R7,500 upfront + R7,500 at launch.",
     monthly: "+ R3,500/month",
     description:
       "For businesses ready to advertise one service and improve the journey from first click to qualified enquiry.",
@@ -125,6 +128,7 @@ export function PriceCard({ type = "capture" }) {
           </p>
         )}
       </div>
+      <p className="package-payment">{p.payment}</p>
       {p.includes && <p className="package-includes">{p.includes}</p>}
       <ul>
         {p.items.map((i) => (
@@ -171,6 +175,10 @@ export function PricingNote() {
   );
 }
 export const pricingFAQs = [
+  [
+    "What is the most affordable way to start?",
+    "Enquiry Essentials starts at R5,500 once-off, split into R2,750 upfront and R2,750 at launch at the starting scope. It includes one landing page, enquiry capture and a simple lead pipeline. No ongoing management fee is required; hosting and any required software are quoted separately.",
+  ],
   [
     "Do you generate leads or handle them?",
     "Enquiry Essentials and Booking & Follow-Up help capture and manage enquiries. Lead Generation & Growth also includes paid campaign management on Google Ads or Meta to attract enquiries.",
